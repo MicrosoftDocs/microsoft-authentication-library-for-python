@@ -1,7 +1,7 @@
 ### YamlMime:PythonPackage
 uid: project-msal
 name: msal
-fullName: msal
+fullName: Microsoft Authentication Library for Python
 type: distribution
 packages:
 - msal

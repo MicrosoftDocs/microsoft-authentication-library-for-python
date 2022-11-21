@@ -1,6 +1,6 @@
 - items:
   - name: Overview
-    uid: project-msal
+    href: overview.md
   - items:
     - name: Overview
       uid: msal
