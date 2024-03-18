@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/python/docs-ref-autogen/msal/index.yml",
+            "redirect_url": "/python/api/msal/msal",
+            "redirect_document_id": false
+        }
+    ]
+}
