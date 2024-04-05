@@ -33,7 +33,7 @@ The management of client credentials happens in the **certificates & secrets** p
 
 ### Using client secrets
 
-In MSAL Python client credentials are similar to what they are in ADAL Python, except that the client credentials are passed as a parameter at the application construction. In this case client secret is passed as an parameter. Then, once the confidential client application is constructed, `acquire_token_for_client` is called with scope as parameter.
+In MSAL Python client credentials are similar to what they are in ADAL Python, except that the client credentials are passed as a parameter at the application construction. In this case client secret is passed as a parameter. Then, once the confidential client application is constructed, `acquire_token_for_client` is called with scope as parameter.
 
 ## Client Credentials with certificate
 
@@ -43,15 +43,15 @@ Steps to generate certificate and private key to be used when implementing the c
 
 1. Generate a key:
 
-   ``` openssl genrsa -out server.pem 2048 ```
+   `openssl genrsa -out server.pem 2048 `
 
 2. Create a certificate request:
 
-   ```openssl req -new -key server.pem -out server.csr```
+   `openssl req -new -key server.pem -out server.csr`
 
 3. Generate a certificate:
 
-   ```openssl x509 -req -days 365 -in server.csr -signkey server.pem -out server.crt```
+   `openssl x509 -req -days 365 -in server.csr -signkey server.pem -out server.crt`
 
 4. You will have to upload this certificate (`server.crt`) on Azure Portal in your application settings. Once you save this certificate, the portal will give you the thumbprint of this certificate which is needed in the acquire token call. The key will be the `server.pem` key you generated in the first step.
 
