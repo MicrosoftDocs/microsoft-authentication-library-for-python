@@ -18,10 +18,9 @@ The Microsoft Authentication Library (MSAL) apps generate log messages that can 
 
 Logging in MSAL Python is designed to use the standard Python logging mechanisms, so all your previous knowledge of Python logging applies to MSAL Python.
 
-* By default, the logging in any Python script is turned off. If you want to enable debug logging for ALL modules in your entire Python script, you use `logging.basicConfig(level=logging.DEBUG)`.
-* Most of the MSAL Python logs are already in debug level, which would be turned off by default. But if you want to enable debug logging to debug the OTHER modules in your Python script, therefore want to silence MSAL, you simply turn off the logger used by MSAL Python: `logging.getLogger("msal").setLevel(logging.WARN)`.
-* MSAL Python does not log Personal Identifiable Information (PII). So there is not even a turn-on-PII-logging toggle in MSAL Python. App developers could still use standard Python logging to log whatever content. By doing so, the app takes responsibility for safely handling highly sensitive data and following regulatory requirements.
-
+- By default, the logging in any Python script is turned off. If you want to enable debug logging for ALL modules in your entire Python script, you use `logging.basicConfig(level=logging.DEBUG)`.
+- Most of the MSAL Python logs are already in debug level, which would be turned off by default. But if you want to enable debug logging to debug the OTHER modules in your Python script, therefore want to silence MSAL, you simply turn off the logger used by MSAL Python: `logging.getLogger("msal").setLevel(logging.WARN)`.
+- MSAL Python does not log Personal Identifiable Information (personally identifiable information (PII)). So there is not even a turn-on-PII-logging toggle in MSAL Python. App developers could still use standard Python logging to log whatever content. By doing so, the app takes responsibility for safely handling highly sensitive data and following regulatory requirements.
 
 ## Logging levels
 
@@ -45,7 +44,7 @@ The following sections provide more details about MSAL error logging for your ap
 
 ## MSAL for Python logging
 
-Logging in MSAL for Python leverages the [logging module in the Python standard library](https://docs.python.org/3/library/logging.html). You can configure MSAL logging as follows (and see it in action in the [username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)):
+Logging in MSAL for Python uses the [logging module in the Python standard library](https://docs.python.org/3/library/logging.html). You can configure MSAL logging as follows (and see it in action in the [username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)):
 
 ### Enable debug logging for all modules
 
@@ -73,7 +72,7 @@ logging.getLogger("msal").setLevel(logging.WARN)
 
 Python logs are given to a log handler, which by default is the `StreamHandler`. To send MSAL logs to an Application Insights with an Instrumentation Key, use the `AzureLogHandler` provided by the `opencensus-ext-azure` library.
 
-To install, `opencensus-ext-azure` add the `opencensus-ext-azure` package from PyPI to your dependencies or pip install:
+To install, `opencensus-ext-azure` add the `opencensus-ext-azure` package from PyPI to your dependencies or public IP (PIP) install:
 
 ```console
 pip install opencensus-ext-azure
@@ -98,4 +97,4 @@ MSAL for Python does not log personal data or organizational data. There is no p
 
 You can use standard Python logging to log whatever you want, but you are responsible for safely handling sensitive data and following regulatory requirements.
 
-For more information about logging in Python, please refer to Python's  [Logging: how-to](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial).
+For more information about logging in Python, please refer to Python's [Logging: how-to](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial).

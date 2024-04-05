@@ -1,5 +1,5 @@
 ---
-title: Azure AD FS support (MSAL Python)
+title: AD FS support (MSAL Python)
 description: Learn about Active Directory Federation Services (AD FS) support in the Microsoft Authentication Library for Python
 author: Dickson-Mwendia
 manager: CelesteDG
@@ -14,11 +14,11 @@ ms.reviewer: shermanouko, rayluo
 
 # Active Directory Federation Services support in MSAL for Python
 
-Active Directory Federation Services (AD FS) in Windows Server enables you to add OpenID Connect and OAuth 2.0 based authentication and authorization to your apps by using the Microsoft Authentication Library (MSAL) for Python. Using the MSAL for Python library, your app can authenticate users directly against AD FS. For more information about scenarios, see [AD FS Scenarios for Developers](/windows-server/identity/ad-fs/ad-fs-development).
+Active Directory Federation Services (AD FS) in Windows Server enables you to add OpenID Connect and Open Authorization (OAuth) 2.0 based authentication and authorization to your apps by using the Microsoft Authentication Library (MSAL) for Python. Using the MSAL for Python library, your app can authenticate users directly against AD FS. For more information about scenarios, see [AD FS Scenarios for Developers](/windows-server/identity/ad-fs/ad-fs-development).
 
 There are usually two ways of authenticating against AD FS:
 
-- MSAL Python talks to Microsoft Entra ID, which itself is federated with other identity providers. The federation happens through AD FS. MSAL Python connects to Microsoft Entra ID, which signs in users that are managed in Microsoft Entra ID (managed users) or users managed by another identity provider such as AD FS (federated users). MSAL Python doesn't  know that a user is federated. It simply talks to Microsoft Entra ID. The [authority](/azure/active-directory/develop/msal-client-application-configuration#authority) you use in this case is the usual authority (authority host name + tenant, common, or organizations).
+- MSAL Python talks to Microsoft Entra ID, which itself is federated with other identity providers. The federation happens through AD FS. MSAL Python connects to Microsoft Entra ID, which signs in users that are managed in Microsoft Entra ID (managed users) or users managed by another identity provider such as AD FS (federated users). MSAL Python doesn't know that a user is federated. It simply talks to Microsoft Entra ID. The [authority](/azure/active-directory/develop/msal-client-application-configuration#authority) you use in this case is the usual authority (authority host name + tenant, common, or organizations).
 - MSAL Python talks directly to an AD FS authority. This is only supported by AD FS 2019 and later.
 
 ## Connect to Active Directory federated with AD FS
@@ -41,10 +41,10 @@ The supported AD FS versions in this federated scenario are:
 
 The following applies whether you connect directly to Active Directory Federation Services (AD FS) or through Active Directory.
 
-When you acquire a token using `acquire_token_by_username_password`, MSAL Python gets the identity provider to contact based on the username. MSAL Python gets a [SAML 1.1 token](/azure/active-directory/develop/reference-saml-tokens) from the identity provider, which it then provides to Microsoft Entra which returns the JSON Web Token (JWT).
+When you acquire a token using `acquire_token_by_username_password`, MSAL Python gets the identity provider to contact based on the username. MSAL Python gets a [Security Assertion Markup Language (SAML) 1.1 token](/azure/active-directory/develop/reference-saml-tokens) from the identity provider, which it then provides to Microsoft Entra which returns the JSON Web Token (JWT).
 
 ## Connecting directly to AD FS
 
 When you connect directory to AD FS, the authority you'll want to use to build your application will be something like `https://somesite.contoso.com/adfs/`
 
-MSAL Python supports ADFS 2019, but does not support a direct connection to ADFS 2016 or ADFS v2. Once you have upgraded your on-premises system to ADFS 2019, you can use MSAL Python.
+MSAL Python supports AD FS 2019, but does not support a direct connection to AD FS 2016 or AD FS v2. Once you have upgraded your on-premises system to AD FS 2019, you can use MSAL Python.

@@ -16,7 +16,7 @@ ms.reviewer: shermanouko, rayluo
 
 In Microsoft Authentication Library (MSAL) for Python, an in-memory token cache that persists for the duration of the app session, is provided by default when you create an instance of <xref:msal.application.ConfidentialClientApplication>.
 
-Serialization of the token cache, so that different sessions of your app can access it, isn't provided "out of the box." MSAL for Python can be used in app types that don't have access to the file system--such as Web apps. To have a persistent token cache in an app that uses MSAL for Python, you must provide custom token cache serialization.
+Serialization of the token cache, so that different sessions of your app can access it, isn't provided "Out of the box." MSAL for Python can be used in app types that don't have access to the file system--such as Web apps. To have a persistent token cache in an app that uses MSAL for Python, you must provide custom token cache serialization.
 
 The strategies for serializing the token cache differ depending on whether you're writing a public client application (Desktop), or a confidential client application (web app, web API, or daemon app).
 
@@ -26,8 +26,8 @@ Public client applications run on a user's device and manage tokens for a single
 
 ## Token cache for a Web app (confidential client application)
 
-For web apps or web APIs, you might use the session, or a Redis cache, or a database to store the token cache. There should be one token cache per user (per account) so ensure that you serialize the token cache per account.
+For web apps or web APIs, you might use the session, or an Azure Cache for Redis, or a database to store the token cache. There should be one token cache per user (per account) so ensure that you serialize the token cache per account.
 
 ## Next steps
 
-See [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.3.0/app.py#L66-L74) for an example of how to use the token cache for a Windows or Linux Web app or web API. The example is for a web app that calls the Microsoft Graph API.
+See [Ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.3.0/app.py#L66-L74) for an example of how to use the token cache for a Windows or Linux Web app or web API. The example is for a web app that calls the Microsoft Graph API.

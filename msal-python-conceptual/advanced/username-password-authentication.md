@@ -1,6 +1,6 @@
 ---
 title: Username and password authentication
-description: "By design and policy, the username/password authentication works only for Work and school accounts, but not for Microsoft Accounts (MSA)."
+description: By design and policy, the username/password authentication works only for Work and school accounts, but not for Microsoft Accounts (MSA).
 author: Dickson-Mwendia
 manager: CelesteDG
 
@@ -22,19 +22,18 @@ In general Microsoft does not advise customers to use it as it's less secure tha
 
 ## Constraints
 
-* By design and policy, the username/password authentication works only for Work and school accounts, but not for Microsoft Accounts (MSA).
+- By design and policy, the username/password authentication works only for Work and school accounts, but not for Microsoft Accounts (MSA).
   See the [definition of these 2 types of accounts here](/azure/active-directory/fundamentals/sign-up-organization).
-* The Username/Password authentication is not compatible with conditional access and multi-factor authentication,
-  because this is not an interactive flow, the Microsoft identity platform does not have an opportunity to present a web-based dialog for the end user to interact.
+- The Username/Password authentication is not compatible with Conditional Access and multi-factor authentication, because this is not an interactive flow, the Microsoft identity platform does not have an opportunity to present a web-based dialog for the end user to interact.
   As a consequence, if your app runs in a Microsoft Entra tenant where the tenant admin requires multi-factor authentication (many organizations do that), this flow will not work.
-* Because Username Password Authentication is a non-interactive flow:
-  - the user of your application must have previously consented to use the application 
+- Because Username Password Authentication is a non-interactive flow:
+  - the user of your application must have previously consented to use the application
   - or the tenant admin must have previously consented to all users in the tenant to use the application.
   - This means that:
-     - either you as a developer have pressed the **Grant** button on the Azure portal for yourself, 
+     - either you as a developer have pressed the **Grant** button on the Azure portal for yourself,
      - or a tenant admin has pressed the **Grant/revoke admin consent for {tenant domain}** button in the **API permissions** tab of the registration for the application (See [Add permissions to access web APIs](/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis))
      - or you have provided a way for users to consent to the application (See [Requesting individual user consent](/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent))
-     - or you have provided a way for the tenant admin to consent for the application (See [admin consent](/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant))
+     - or you have provided a way for the tenant admin to consent for the application (See [Admin consent](/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant))
 
 ## Recommendations
 

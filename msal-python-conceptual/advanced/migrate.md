@@ -1,6 +1,6 @@
 ---
 title: Migrate existing Refresh Tokens into MSAL Python
-description: "MSAL is not a low-level OAuth2 library. MSAL wraps and hides the concept of Refresh Token (RT) away from you."
+description: MSAL is not a low-level OAuth2 library. MSAL wraps and hides the concept of Refresh Token (RT) away from you.
 author: Dickson-Mwendia
 manager: CelesteDG
 
@@ -16,11 +16,9 @@ ms.reviewer: shermanouko, rayluo
 
 MSAL is not a low-level OAuth2 library. MSAL wraps and hides the concept of Refresh Token (RT) away from you. So if you started your project with MSAL Python and following its [3-steps usage pattern](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/README.md#usage-and-samples) (specifically, the step 2), you don't even need to know and care about where to store an RT, how to look it up, and when to update it. MSAL Python just automatically does all the hard work on token caching for you, and your end user will see minimal amount of sign-in prompt.
 
-But if your existing project was using other OAuth2 libraries (including but not limited to ADAL Python) and your RTs were stored there, and now you want to migrate your project to MSAL Python, you may also want to migrate those RTs into MSAL Python so that your existing end users would not need to sign in again.
+But if your existing project was using other OAuth2 libraries (including but not limited to ADAL Python) and your RTs were stored there, and now you want to migrate your project to MSAL Python, you might also want to migrate those RTs into MSAL Python so that your existing end users would not need to sign in again.
 
-Starting from MSAL Python 0.6.0, one of the way to do it,
-is to use MSAL Python to acquire a new access token with the previous RT,
-and then when a new RT comes back, MSAL will store it in the usual way.
+Starting from MSAL Python 0.6.0, one of the way to do it, is to use MSAL Python to acquire a new access token with the previous RT, and then when a new RT comes back, MSAL will store it in the usual way.
 As this method is intended for scenarios that are not typical, it is NOT readily accessible with the official API surface.
 You will have to call it via an internal helper `app.client`,
 and its naming convention is also slightly different than those other
@@ -63,21 +61,21 @@ ADAL Python acquires tokens for resources, but MSAL Python acquires tokens for s
 
 You can use the `/.default` scope suffix to help migrate your apps from the v1.0 endpoint (ADAL) to the Microsoft identity platform endpoint (MSAL). For example, a scope value of `https://graph.microsoft.com/.default` is functionally the same as the v1.0 endpoints `resource=https://graph.microsoft.com`. Even if your resource was not in the URL form, but a resource ID on the form `resource_id = "XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX"`, you can still use `scope = [ resource_id + "/.default" ]`.
 
-Reference: 
+Reference:
 
-* [The /.default scope](/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope)
+- The [/.default scope](/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope)
 
-* [Scopes for a Web API accepting v1.0 tokens.](/azure/active-directory/develop/msal-v1-app-scopes)
+- [Scopes for a Web API accepting v1.0 tokens](/azure/active-directory/develop/msal-v1-app-scopes).
 
 ### API mapping
 
 | API in ADAL Python  | Roughly maps to API in MSAL Python |
 | ------------------- | ---------------------------------- |
-| [AuthenticationContext](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext)  | [PublicClientApplication or ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.__init__)  |
+| [AuthenticationContext](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext)  | [PublicClientApplication or ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.**init**)  |
 | N/A  | [get_authorization_request_url()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.get_authorization_request_url)  |
 | [acquire_token_with_authorization_code()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_authorization_code) | [acquire_token_by_authorization_code()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.acquire_token_by_authorization_code) |
 | [acquire_token()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token) | [acquire_token_silent()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.acquire_token_silent) |
-| [acquire_token_with_refresh_token()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_refresh_token) | N/A (See details in [this section](#migrate-existing-refresh-tokens-into-msal-python)) |
+| [acquire_token_with_refresh_token()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_refresh_token) | N/A (See details in [This section](#migrate-existing-refresh-tokens-into-msal-python)) |
 | [acquire_user_code()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_user_code) | [initiate_device_flow()](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.initiate_device_flow) |
 | [acquire_token_with_device_code()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_device_code) and [cancel_request_to_get_token_with_device_code()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.cancel_request_to_get_token_with_device_code) | [acquire_token_by_device_flow()](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_by_device_flow) |
 | [acquire_token_with_username_password()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_username_password) | [acquire_token_by_username_password()](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_by_username_password) |
