@@ -17,18 +17,18 @@
     href: advanced/msal-logging-python.md
   - name: Handle errors and exceptions
     href: advanced/msal-error-handling-python.md
-  - name: Conditional access
+  - name: Conditional Access
     href: advanced/conditional-access.md
   - name: Token cache serialization
     href: advanced/msal-python-token-cache-serialization.md
   - name: Develop an Azure AD B2C app with MSAL Python
     href: advanced/aad-b2c.md
-  - name: Active Directory Federation Services (ADFS) Support
+  - name: Active Directory Federation Services (AD FS) Support
     href: advanced/msal-python-adfs-support.md
   - name: National clouds
   - name: Username and password authentication
     href: advanced/username-password-authentication.md
-  - name: How to generate secret and/or certificate for Confidential Client
+  - name: How to generate secret or certificate for Confidential Client
     href: advanced/client-credentials.md
   - name: Handle SameSite cookie changes in Chrome
     href: /azure/active-directory/develop/howto-handle-samesite-cookie-changes-chrome-browser?tabs=python
