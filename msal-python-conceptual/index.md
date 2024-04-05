@@ -16,7 +16,6 @@ ms.reviewer: shermanouko, rayluo
 
 The Microsoft Authentication Library (MSAL) for Python library enables you to sign in users or apps with Microsoft identities ([Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/), [Microsoft Accounts](https://account.microsoft.com), and [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/) accounts). Using MSAL Python, you can acquire tokens from Microsoft Entra ID to call protected web APIs such as [Microsoft Graph](https://graph.microsoft.io/), other Microsoft APIs, or your own APIs.
 
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create a free account](https://signup.azure.com/).
@@ -24,9 +23,9 @@ The Microsoft Authentication Library (MSAL) for Python library enables you to si
 
 ## Install the package
 
-Install the MSAL for Python package. You can find MSAL Python on [PyPI](https://pypi.org/project/msal/).
+Install the MSAL for Python package. You can find MSAL Python on [Python Package Index (PyPI)](https://pypi.org/project/msal/).
 
-```Bash
+```bash
 pip install msal
 ```
 
@@ -35,11 +34,11 @@ pip install msal
 Before using MSAL Python, make sure to [register your application](/azure/active-directory/develop/quickstart-v2-register-an-app) with the Microsoft identity platform. You will need to take note of your **client ID** and **tenant ID**.
 
 >[!IMPORTANT]
->When registering the application, make sure that you set up **redirect URLs** within the **Authentication** blade. Redirect URLs vary depending on the target platform.
+> When registering the application, make sure that you set up **redirect URLs** within the **Authentication** blade. Redirect URLs vary depending on the target platform.
 >
 >![Screenshot showing redirect URLs in Azure Portal](./media/redirect-urls.png)
 >
->For desktop and mobile applications, make sure you add `http://localhost` as redirect URL if you do not rely on authentication brokers.
+> For desktop and mobile applications, make sure you add `http://localhost` as redirect URL if you do not rely on authentication brokers.
 
 ## Basic usage
 
@@ -56,7 +55,7 @@ Acquiring tokens with MSAL Python follows a three-step pattern. There will be so
     ```
 
     >[!NOTE]
-    >The authority is set to `/common` to allow sign ins with both organizaiton and personal Microsoft accounts. You can change it to `/organizations` to only allow sign ins with work and school accounts, `/consumers` to only allow personal Microsoft accounts, or with `/YOUR_TENANT_ID` to only allow sign ins from work and school accounts associated with your tenant.
+    > The authority is set to `/common` to allow sign ins with both organizaiton and personal Microsoft accounts. You can change it to `/organizations` to only allow sign ins with work and school accounts, `/consumers` to only allow personal Microsoft accounts, or with `/YOUR_TENANT_ID` to only allow sign ins from work and school accounts associated with your tenant.
 
     Instantiate a variable to hold the authentication result:
 
@@ -99,7 +98,7 @@ Acquiring tokens with MSAL Python follows a three-step pattern. There will be so
 5. Run the code by executing `python .\msalpytest.py`.
 
 >[!NOTE]
->You can also download runnable samples from the [library repository](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.22.0/sample/interactive_sample.py).
+> You can also download runnable samples from the [library repository](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.22.0/sample/interactive_sample.py).
 
 If the application was configured correctly, you should see a web browser window appear asking the user to sign in.
 
@@ -111,8 +110,8 @@ Once the authentication is completed and you closed the browser, you should be a
 
 MSAL Python can be used by applications to acquire tokens to access protected APIs. Tokens can be acquired by different **application types**: desktop applications, web applications, web APIs, and applications running on devices that don't have a browser (such as IoT devices). In MSAL Python, applications are categorized as follows:
 
-- **Public client applications (desktop and mobile)**. These types of apps cannot store app secrets securely.
-- **Confidential client applications (web apps, web APIs, and daemon applications)**. These type of apps securely store a secret registered with Microsoft Entra ID.
+- **Public client applications (desktop and mobile).** These types of apps cannot store app secrets securely.
+- **Confidential client applications (web apps, web APIs, and daemon applications).** These type of apps securely store a secret registered with Microsoft Entra ID.
 
 Learn more about instantiating and configuring the above in the [Client applications](./getting-started/client-applications.md) topic.
 
@@ -126,7 +125,7 @@ Key scenarios supported by MSAL Python:
 - [Web Application signing in a user and calling a Web API in the name of the user](/azure/active-directory/develop/scenario-web-app-call-api-overview) (note that MSAL only helps the web application to sign in and obtain tokens. To [protect a web API](/azure/active-directory/develop/scenario-protected-web-api-overview), you will need other libraries).
 - [Desktop application calling a Web API in the name of the signed-in user](/azure/active-directory/develop/scenario-desktop-overview)
 - [Desktop/service daemon application calling Web API without a user](/azure/active-directory/develop/scenario-daemon-overview)
-- [Application without a browser, or IOT application calling an API in the name of the user](/azure/active-directory/develop/scenario-desktop-acquire-token?tabs=python#command-line-tool-without-web-browser)
+- [Application without a browser, or IoT application calling an API in the name of the user](/azure/active-directory/develop/scenario-desktop-acquire-token?tabs=python#command-line-tool-without-web-browser)
 
 Can't find the scenario you are looking for? Check out the [supported scenarios and platforms](/azure/active-directory/develop/authentication-flows-app-scenarios#scenarios-and-supported-platforms-and-languages) across MSAL libraries.
 
