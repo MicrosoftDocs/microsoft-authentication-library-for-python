@@ -29,7 +29,7 @@ Supports:
 - Your customers who bring their own email or social identity (such as LinkedIn, Facebook, Google) via the Azure AD B2C offering
 
 - Is standards compatible with:
-  - OAuth v2.0
+  - Open Authorization (OAuth) v2.0
   - OpenID Connect (OIDC)
 
 For more information about MSAL, see [MSAL overview](../index.md).
@@ -97,7 +97,6 @@ def get_preexisting_rt_and_their_scopes_from_elsewhere():
         ("old_rt_1", ["scope1", "scope2"]),
         ("old_rt_2", ["scope3", "scope4"]),
         ]
-
 
 # We will migrate all the old RTs into a new app powered by MSAL
 app = msal.PublicClientApplication(
