@@ -1,6 +1,6 @@
 ---
-title: Using MSAL Python with Authentication Brokers on macOS
-description: "Using authentication brokers on macOS enables you to simplify how your users authenticate with Microsoft Entra ID from your application, as well as take advantage of advanced functionality such as token binding, protecting any issued tokens from exfiltration and misuse."
+title: Using MSAL Python with an Authentication Broker on macOS
+description: "Using an authentication broker on macOS enables you to simplify how your users authenticate with Microsoft Entra ID from your application, as well as take advantage of advanced functionality such as token binding, protecting any issued tokens from exfiltration and misuse."
 author: localden
 manager: CelesteDG
 
@@ -12,12 +12,12 @@ ms.author: ddelimarsky
 ms.reviewer: shermanouko, rayluo
 ---
 
-# Using MSAL Python with Authentication Brokers on macOS
+# Using MSAL Python with an Authentication Broker on macOS
 
 >[!NOTE]
 >macOS authentication broker support is introduced with `msal` version 1.31.0.
 
-Using authentication brokers on macOS enables you to simplify how your users authenticate with Microsoft Entra ID from your application, as well as take advantage of advanced functionality such as **token binding**, protecting any issued tokens from exfiltration and misuse.
+Using an authentication brokers on macOS enables you to simplify how your users authenticate with Microsoft Entra ID from your application, as well as take advantage of future functionality that protects Microsoft Entra ID tokens from exfiltration and misuse.
 
 Authentication brokers are **not** pre-installed on macOS but are applications developed by Microsoft, such as [Company Portal](/mem/intune/apps/apps-company-portal-macos). These applications are usually installed when a macOS computer is enrolled in a company's device fleet via an endpoint management solution like [Microsoft Intune](/mem/intune/fundamentals/what-is-intune). To learn more about Apple device set up with the Microsoft Identity Platform, refer to [Microsoft Enterprise SSO plug-in for Apple devices](/entra/identity-platform/apple-sso-plugin).
 
@@ -75,7 +75,9 @@ result = app.acquire_token_interactive(["User.ReadBasic.All"],
                     parent_window_handle=app.CONSOLE_WINDOW_HANDLE)
 ```
 
-The `parent_window_handle` parameter is required even though on macOS it is not used. For GUI applications, the login prompt location will be determined ad-hoc and currently cannot be bound to a specific window.
-
 >[!NOTE]
->The authentication broker handles refresh and access token caching. You do not need to set up custom caching.
+>The `parent_window_handle` parameter is required even though on macOS it is not used. For GUI applications, the login prompt location will be determined ad-hoc and currently cannot be bound to a specific window. In a future update, this parameter will be used to determine the _actual_ parent window.
+
+## Token caching
+
+The authentication broker handles refresh and access token caching. You do not need to set up custom caching.
