@@ -35,7 +35,7 @@ pip install msal[broker]>=1.20,<2
 Next, you will need to instantiate a new [`PublicClientApplication`](xref:msal.application.PublicClientApplication) and set `enable_broker_on_windows` to `True`. This will ensure that MSAL will try and communicate with WAM instead of popping up a new browser window.
 
 >[!IMPORTANT]
->If you are writing a cross-platform application, you will also need to use `enable_broker_on_mac`, as outlined in the [Using MSAL Python with Authentication Brokers on macOS](macos-broker.md) article.
+>If you are writing a cross-platform application, you will also need to use `enable_broker_on_mac`, as outlined in the [Using MSAL Python with an Authentication Broker on macOS](macos-broker.md) article.
 
 ```python
 from msal import PublicClientApplication
