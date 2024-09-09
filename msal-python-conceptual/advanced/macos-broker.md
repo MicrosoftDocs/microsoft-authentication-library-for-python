@@ -17,7 +17,8 @@ ms.reviewer: shermanouko, rayluo
 >[!NOTE]
 >macOS authentication broker support is introduced with `msal` version 1.31.0.
 
-Using an authentication brokers on macOS enables you to simplify how your users authenticate with Microsoft Entra ID from your application, as well as take advantage of future functionality that protects Microsoft Entra ID tokens from exfiltration and misuse.
+Using an authentication brokers on macOS enables you to simplify how your users authenticate with Microsoft Entra ID from your application,
+as well as take advantage of future functionality that protects Microsoft Entra ID refresh tokens from exfiltration and misuse.
 
 Authentication brokers are **not** pre-installed on macOS but are applications developed by Microsoft, such as [Company Portal](/mem/intune/apps/apps-company-portal-macos). These applications are usually installed when a macOS computer is enrolled in a company's device fleet via an endpoint management solution like [Microsoft Intune](/mem/intune/fundamentals/what-is-intune). To learn more about Apple device set up with the Microsoft Identity Platform, refer to [Microsoft Enterprise SSO plug-in for Apple devices](/entra/identity-platform/apple-sso-plugin).
 
