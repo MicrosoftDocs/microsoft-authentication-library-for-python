@@ -11,6 +11,8 @@
   items:
   - name: Using MSAL Python with Web Account Manager
     href: advanced/wam.md
+  - name: Using MSAL Python with Authentication Brokers on macOS
+    href: advanced/macos-broker.md
   - name: Migrate to MSAL Python
     href: advanced/migrate-python-adal-msal.md
   - name: Logging

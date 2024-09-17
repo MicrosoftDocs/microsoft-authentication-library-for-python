@@ -44,7 +44,7 @@
       "breadcrumb_path": "/entra/msal/python/breadcrumb/toc.json",
       "extendBreadcrumb": true,
       "uhfHeaderId": "MSDocsHeader-Entra",
-      "feedback_system": "GitHub",
+      "feedback_system": "OpenSource",
       "feedback_github_repo": "MicrosoftDocs/microsoft-authentication-library-for-python",
       "feedback_product_url": "https://github.com/AzureAD/microsoft-authentication-library-for-python/issues",
       "recommendations": true,

@@ -32,7 +32,10 @@ pip install msal[broker]>=1.20,<2
 >[!IMPORTANT]
 >If broker-related packages are not installed and you will try to use the authentication broker, you will get an error: `ImportError: You need to install dependency by: pip install "msal[broker]>=1.20,<2"`.
 
-Next, you will need to instantiate a new [`PublicClientApplication`](xref:msal.application.PublicClientApplication) and set `allow_broker` to `True`. This will ensure that MSAL will try and communicate with WAM instead of popping up a new browser window.
+Next, you will need to instantiate a new [`PublicClientApplication`](xref:msal.application.PublicClientApplication) and set `enable_broker_on_windows` to `True`. This will ensure that MSAL will try and communicate with WAM instead of popping up a new browser window.
+
+>[!IMPORTANT]
+>If you are writing a cross-platform application, you will also need to use `enable_broker_on_mac`, as outlined in the [Using MSAL Python with an Authentication Broker on macOS](macos-broker.md) article.
 
 ```python
 from msal import PublicClientApplication
@@ -40,7 +43,7 @@ from msal import PublicClientApplication
 app = PublicClientApplication(
     "CLIENT_ID",
     authority="https://login.microsoftonline.com/common",
-    allow_broker=True)
+    enable_broker_on_windows=True)
 ```
 
 You can now acquire a token by calling [`acquire_token_interactive`](xref:msal.application.PublicClientApplication.acquire_token_interactive) and specifying a parent window handle through `parent_window_handle`:
