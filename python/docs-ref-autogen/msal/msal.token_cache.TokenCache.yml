@@ -3,8 +3,6 @@ uid: msal.token_cache.TokenCache
 name: TokenCache
 fullName: msal.token_cache.TokenCache
 module: msal.token_cache
-inheritances:
-- builtins.object
 summary: 'This is considered as a base class containing minimal cache behavior.
 
 

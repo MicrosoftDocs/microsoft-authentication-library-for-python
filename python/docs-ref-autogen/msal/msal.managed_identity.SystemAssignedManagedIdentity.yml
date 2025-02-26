@@ -3,8 +3,6 @@ uid: msal.managed_identity.SystemAssignedManagedIdentity
 name: SystemAssignedManagedIdentity
 fullName: msal.managed_identity.SystemAssignedManagedIdentity
 module: msal.managed_identity
-inheritances:
-- msal.managed_identity.ManagedIdentity
 summary: "Represent a system-assigned managed identity.\n\nIt is equivalent to a Python\
   \ dict of:\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"\
   dupnames\": [], \"backrefs\": [], \"xml:space\": \"preserve\", \"language\": \"\

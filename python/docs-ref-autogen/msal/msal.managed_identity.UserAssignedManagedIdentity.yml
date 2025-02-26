@@ -3,8 +3,6 @@ uid: msal.managed_identity.UserAssignedManagedIdentity
 name: UserAssignedManagedIdentity
 fullName: msal.managed_identity.UserAssignedManagedIdentity
 module: msal.managed_identity
-inheritances:
-- msal.managed_identity.ManagedIdentity
 summary: "Represent a user-assigned managed identity.\n\nDepends on the id you provided,\
   \ the outcome is equivalent to one of the below:\n\n<!-- literal_block {\"ids\"\
   : [], \"classes\": [], \"names\": [], \"dupnames\": [], \"backrefs\": [], \"xml:space\"\

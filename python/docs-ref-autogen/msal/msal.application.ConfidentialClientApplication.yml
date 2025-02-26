@@ -3,8 +3,6 @@ uid: msal.application.ConfidentialClientApplication
 name: ConfidentialClientApplication
 fullName: msal.application.ConfidentialClientApplication
 module: msal.application
-inheritances:
-- msal.application.ClientApplication
 summary: 'Same as <xref:ClientApplication.__init__>,
 
   except that `allow_broker` parameter shall remain `None`.

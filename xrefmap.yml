@@ -1787,10 +1787,6 @@ references:
   href: https://docs.python.org/3/library/curses.html#curses.window.encoding
   name: encoding
   uid: curses.window.encoding
-- fullName: datetime.UTC
-  href: https://docs.python.org/3/library/datetime.html#datetime.UTC
-  name: UTC
-  uid: datetime.UTC
 - fullName: datetime.date.day
   href: https://docs.python.org/3/library/datetime.html#datetime.date.day
   name: day
@@ -2287,10 +2283,6 @@ references:
   href: https://docs.python.org/3/library/enum.html#enum.FlagBoundary.STRICT
   name: STRICT
   uid: enum.FlagBoundary.STRICT
-- fullName: filecmp.DEFAULT_IGNORES
-  href: https://docs.python.org/3/library/filecmp.html#filecmp.DEFAULT_IGNORES
-  name: DEFAULT_IGNORES
-  uid: filecmp.DEFAULT_IGNORES
 - fullName: filecmp.dircmp.common
   href: https://docs.python.org/3/library/filecmp.html#filecmp.dircmp.common
   name: common
@@ -2823,18 +2815,6 @@ references:
   href: https://docs.python.org/3/library/importlib.html#importlib.machinery.AppleFrameworkLoader.path
   name: path
   uid: importlib.machinery.AppleFrameworkLoader.path
-- fullName: importlib.machinery.BYTECODE_SUFFIXES
-  href: https://docs.python.org/3/library/importlib.html#importlib.machinery.BYTECODE_SUFFIXES
-  name: BYTECODE_SUFFIXES
-  uid: importlib.machinery.BYTECODE_SUFFIXES
-- fullName: importlib.machinery.DEBUG_BYTECODE_SUFFIXES
-  href: https://docs.python.org/3/library/importlib.html#importlib.machinery.DEBUG_BYTECODE_SUFFIXES
-  name: DEBUG_BYTECODE_SUFFIXES
-  uid: importlib.machinery.DEBUG_BYTECODE_SUFFIXES
-- fullName: importlib.machinery.EXTENSION_SUFFIXES
-  href: https://docs.python.org/3/library/importlib.html#importlib.machinery.EXTENSION_SUFFIXES
-  name: EXTENSION_SUFFIXES
-  uid: importlib.machinery.EXTENSION_SUFFIXES
 - fullName: importlib.machinery.ExtensionFileLoader.name
   href: https://docs.python.org/3/library/importlib.html#importlib.machinery.ExtensionFileLoader.name
   name: name
@@ -2879,14 +2859,6 @@ references:
   href: https://docs.python.org/3/library/importlib.html#importlib.machinery.ModuleSpec.submodule_search_locations
   name: submodule_search_locations
   uid: importlib.machinery.ModuleSpec.submodule_search_locations
-- fullName: importlib.machinery.OPTIMIZED_BYTECODE_SUFFIXES
-  href: https://docs.python.org/3/library/importlib.html#importlib.machinery.OPTIMIZED_BYTECODE_SUFFIXES
-  name: OPTIMIZED_BYTECODE_SUFFIXES
-  uid: importlib.machinery.OPTIMIZED_BYTECODE_SUFFIXES
-- fullName: importlib.machinery.SOURCE_SUFFIXES
-  href: https://docs.python.org/3/library/importlib.html#importlib.machinery.SOURCE_SUFFIXES
-  name: SOURCE_SUFFIXES
-  uid: importlib.machinery.SOURCE_SUFFIXES
 - fullName: importlib.machinery.SourceFileLoader.name
   href: https://docs.python.org/3/library/importlib.html#importlib.machinery.SourceFileLoader.name
   name: name
@@ -2907,10 +2879,6 @@ references:
   href: https://docs.python.org/3/library/importlib.resources.abc.html#importlib.resources.abc.Traversable.name
   name: name
   uid: importlib.resources.abc.Traversable.name
-- fullName: importlib.util.MAGIC_NUMBER
-  href: https://docs.python.org/3/library/importlib.html#importlib.util.MAGIC_NUMBER
-  name: MAGIC_NUMBER
-  uid: importlib.util.MAGIC_NUMBER
 - fullName: inspect.BoundArguments.args
   href: https://docs.python.org/3/library/inspect.html#inspect.BoundArguments.args
   name: args
@@ -3523,14 +3491,6 @@ references:
   href: https://docs.python.org/3/library/logging.handlers.html#logging.handlers.QueueHandler.listener
   name: listener
   uid: logging.handlers.QueueHandler.listener
-- fullName: logging.lastResort
-  href: https://docs.python.org/3/library/logging.html#logging.lastResort
-  name: lastResort
-  uid: logging.lastResort
-- fullName: logging.raiseExceptions
-  href: https://docs.python.org/3/library/logging.html#logging.raiseExceptions
-  name: raiseExceptions
-  uid: logging.raiseExceptions
 - fullName: lzma.LZMADecompressor.check
   href: https://docs.python.org/3/library/lzma.html#lzma.LZMADecompressor.check
   name: check
@@ -4247,10 +4207,6 @@ references:
   href: https://docs.python.org/3/library/sched.html#sched.scheduler.queue
   name: queue
   uid: sched.scheduler.queue
-- fullName: select.PIPE_BUF
-  href: https://docs.python.org/3/library/select.html#select.PIPE_BUF
-  name: PIPE_BUF
-  uid: select.PIPE_BUF
 - fullName: select.devpoll.closed
   href: https://docs.python.org/3/library/select.html#select.devpoll.closed
   name: closed
@@ -19627,6 +19583,10 @@ references:
   href: https://docs.python.org/3/library/datetime.html#datetime.MINYEAR
   name: MINYEAR
   uid: datetime.MINYEAR
+- fullName: datetime.UTC
+  href: https://docs.python.org/3/library/datetime.html#datetime.UTC
+  name: UTC
+  uid: datetime.UTC
 - fullName: dbm.gnu.open_flags
   href: https://docs.python.org/3/library/dbm.html#dbm.gnu.open_flags
   name: open_flags
@@ -19959,10 +19919,22 @@ references:
   href: https://docs.python.org/3/library/errno.html#errno.EALREADY
   name: EALREADY
   uid: errno.EALREADY
+- fullName: errno.EAUTH
+  href: https://docs.python.org/3/library/errno.html#errno.EAUTH
+  name: EAUTH
+  uid: errno.EAUTH
+- fullName: errno.EBADARCH
+  href: https://docs.python.org/3/library/errno.html#errno.EBADARCH
+  name: EBADARCH
+  uid: errno.EBADARCH
 - fullName: errno.EBADE
   href: https://docs.python.org/3/library/errno.html#errno.EBADE
   name: EBADE
   uid: errno.EBADE
+- fullName: errno.EBADEXEC
+  href: https://docs.python.org/3/library/errno.html#errno.EBADEXEC
+  name: EBADEXEC
+  uid: errno.EBADEXEC
 - fullName: errno.EBADF
   href: https://docs.python.org/3/library/errno.html#errno.EBADF
   name: EBADF
@@ -19971,6 +19943,10 @@ references:
   href: https://docs.python.org/3/library/errno.html#errno.EBADFD
   name: EBADFD
   uid: errno.EBADFD
+- fullName: errno.EBADMACHO
+  href: https://docs.python.org/3/library/errno.html#errno.EBADMACHO
+  name: EBADMACHO
+  uid: errno.EBADMACHO
 - fullName: errno.EBADMSG
   href: https://docs.python.org/3/library/errno.html#errno.EBADMSG
   name: EBADMSG
@@ -19979,6 +19955,10 @@ references:
   href: https://docs.python.org/3/library/errno.html#errno.EBADR
   name: EBADR
   uid: errno.EBADR
+- fullName: errno.EBADRPC
+  href: https://docs.python.org/3/library/errno.html#errno.EBADRPC
+  name: EBADRPC
+  uid: errno.EBADRPC
 - fullName: errno.EBADRQC
   href: https://docs.python.org/3/library/errno.html#errno.EBADRQC
   name: EBADRQC
@@ -20035,6 +20015,10 @@ references:
   href: https://docs.python.org/3/library/errno.html#errno.EDESTADDRREQ
   name: EDESTADDRREQ
   uid: errno.EDESTADDRREQ
+- fullName: errno.EDEVERR
+  href: https://docs.python.org/3/library/errno.html#errno.EDEVERR
+  name: EDEVERR
+  uid: errno.EDEVERR
 - fullName: errno.EDOM
   href: https://docs.python.org/3/library/errno.html#errno.EDOM
   name: EDOM
@@ -20059,6 +20043,10 @@ references:
   href: https://docs.python.org/3/library/errno.html#errno.EFBIG
   name: EFBIG
   uid: errno.EFBIG
+- fullName: errno.EFTYPE
+  href: https://docs.python.org/3/library/errno.html#errno.EFTYPE
+  name: EFTYPE
+  uid: errno.EFTYPE
 - fullName: errno.EHOSTDOWN
   href: https://docs.python.org/3/library/errno.html#errno.EHOSTDOWN
   name: EHOSTDOWN
@@ -20103,6 +20091,18 @@ references:
   href: https://docs.python.org/3/library/errno.html#errno.EISNAM
   name: EISNAM
   uid: errno.EISNAM
+- fullName: errno.EKEYEXPIRED
+  href: https://docs.python.org/3/library/errno.html#errno.EKEYEXPIRED
+  name: EKEYEXPIRED
+  uid: errno.EKEYEXPIRED
+- fullName: errno.EKEYREJECTED
+  href: https://docs.python.org/3/library/errno.html#errno.EKEYREJECTED
+  name: EKEYREJECTED
+  uid: errno.EKEYREJECTED
+- fullName: errno.EKEYREVOKED
+  href: https://docs.python.org/3/library/errno.html#errno.EKEYREVOKED
+  name: EKEYREVOKED
+  uid: errno.EKEYREVOKED
 - fullName: errno.EL2HLT
   href: https://docs.python.org/3/library/errno.html#errno.EL2HLT
   name: EL2HLT
@@ -20143,10 +20143,18 @@ references:
   href: https://docs.python.org/3/library/errno.html#errno.ELNRNG
   name: ELNRNG
   uid: errno.ELNRNG
+- fullName: errno.ELOCKUNMAPPED
+  href: https://docs.python.org/3/library/errno.html#errno.ELOCKUNMAPPED
+  name: ELOCKUNMAPPED
+  uid: errno.ELOCKUNMAPPED
 - fullName: errno.ELOOP
   href: https://docs.python.org/3/library/errno.html#errno.ELOOP
   name: ELOOP
   uid: errno.ELOOP
+- fullName: errno.EMEDIUMTYPE
+  href: https://docs.python.org/3/library/errno.html#errno.EMEDIUMTYPE
+  name: EMEDIUMTYPE
+  uid: errno.EMEDIUMTYPE
 - fullName: errno.EMFILE
   href: https://docs.python.org/3/library/errno.html#errno.EMFILE
   name: EMFILE
@@ -20171,6 +20179,10 @@ references:
   href: https://docs.python.org/3/library/errno.html#errno.ENAVAIL
   name: ENAVAIL
   uid: errno.ENAVAIL
+- fullName: errno.ENEEDAUTH
+  href: https://docs.python.org/3/library/errno.html#errno.ENEEDAUTH
+  name: ENEEDAUTH
+  uid: errno.ENEEDAUTH
 - fullName: errno.ENETDOWN
   href: https://docs.python.org/3/library/errno.html#errno.ENETDOWN
   name: ENETDOWN
@@ -20191,6 +20203,10 @@ references:
   href: https://docs.python.org/3/library/errno.html#errno.ENOANO
   name: ENOANO
   uid: errno.ENOANO
+- fullName: errno.ENOATTR
+  href: https://docs.python.org/3/library/errno.html#errno.ENOATTR
+  name: ENOATTR
+  uid: errno.ENOATTR
 - fullName: errno.ENOBUFS
   href: https://docs.python.org/3/library/errno.html#errno.ENOBUFS
   name: ENOBUFS
@@ -20215,6 +20231,10 @@ references:
   href: https://docs.python.org/3/library/errno.html#errno.ENOEXEC
   name: ENOEXEC
   uid: errno.ENOEXEC
+- fullName: errno.ENOKEY
+  href: https://docs.python.org/3/library/errno.html#errno.ENOKEY
+  name: ENOKEY
+  uid: errno.ENOKEY
 - fullName: errno.ENOLCK
   href: https://docs.python.org/3/library/errno.html#errno.ENOLCK
   name: ENOLCK
@@ -20223,6 +20243,10 @@ references:
   href: https://docs.python.org/3/library/errno.html#errno.ENOLINK
   name: ENOLINK
   uid: errno.ENOLINK
+- fullName: errno.ENOMEDIUM
+  href: https://docs.python.org/3/library/errno.html#errno.ENOMEDIUM
+  name: ENOMEDIUM
+  uid: errno.ENOMEDIUM
 - fullName: errno.ENOMEM
   href: https://docs.python.org/3/library/errno.html#errno.ENOMEM
   name: ENOMEM
@@ -20239,6 +20263,10 @@ references:
   href: https://docs.python.org/3/library/errno.html#errno.ENOPKG
   name: ENOPKG
   uid: errno.ENOPKG
+- fullName: errno.ENOPOLICY
+  href: https://docs.python.org/3/library/errno.html#errno.ENOPOLICY
+  name: ENOPOLICY
+  uid: errno.ENOPOLICY
 - fullName: errno.ENOPROTOOPT
   href: https://docs.python.org/3/library/errno.html#errno.ENOPROTOOPT
   name: ENOPROTOOPT
@@ -20259,6 +20287,10 @@ references:
   href: https://docs.python.org/3/library/errno.html#errno.ENOSYS
   name: ENOSYS
   uid: errno.ENOSYS
+- fullName: errno.ENOTACTIVE
+  href: https://docs.python.org/3/library/errno.html#errno.ENOTACTIVE
+  name: ENOTACTIVE
+  uid: errno.ENOTACTIVE
 - fullName: errno.ENOTBLK
   href: https://docs.python.org/3/library/errno.html#errno.ENOTBLK
   name: ENOTBLK
@@ -20331,6 +20363,22 @@ references:
   href: https://docs.python.org/3/library/errno.html#errno.EPIPE
   name: EPIPE
   uid: errno.EPIPE
+- fullName: errno.EPROCLIM
+  href: https://docs.python.org/3/library/errno.html#errno.EPROCLIM
+  name: EPROCLIM
+  uid: errno.EPROCLIM
+- fullName: errno.EPROCUNAVAIL
+  href: https://docs.python.org/3/library/errno.html#errno.EPROCUNAVAIL
+  name: EPROCUNAVAIL
+  uid: errno.EPROCUNAVAIL
+- fullName: errno.EPROGMISMATCH
+  href: https://docs.python.org/3/library/errno.html#errno.EPROGMISMATCH
+  name: EPROGMISMATCH
+  uid: errno.EPROGMISMATCH
+- fullName: errno.EPROGUNAVAIL
+  href: https://docs.python.org/3/library/errno.html#errno.EPROGUNAVAIL
+  name: EPROGUNAVAIL
+  uid: errno.EPROGUNAVAIL
 - fullName: errno.EPROTO
   href: https://docs.python.org/3/library/errno.html#errno.EPROTO
   name: EPROTO
@@ -20343,6 +20391,10 @@ references:
   href: https://docs.python.org/3/library/errno.html#errno.EPROTOTYPE
   name: EPROTOTYPE
   uid: errno.EPROTOTYPE
+- fullName: errno.EPWROFF
+  href: https://docs.python.org/3/library/errno.html#errno.EPWROFF
+  name: EPWROFF
+  uid: errno.EPWROFF
 - fullName: errno.EQFULL
   href: https://docs.python.org/3/library/errno.html#errno.EQFULL
   name: EQFULL
@@ -20367,10 +20419,22 @@ references:
   href: https://docs.python.org/3/library/errno.html#errno.ERESTART
   name: ERESTART
   uid: errno.ERESTART
+- fullName: errno.ERFKILL
+  href: https://docs.python.org/3/library/errno.html#errno.ERFKILL
+  name: ERFKILL
+  uid: errno.ERFKILL
 - fullName: errno.EROFS
   href: https://docs.python.org/3/library/errno.html#errno.EROFS
   name: EROFS
   uid: errno.EROFS
+- fullName: errno.ERPCMISMATCH
+  href: https://docs.python.org/3/library/errno.html#errno.ERPCMISMATCH
+  name: ERPCMISMATCH
+  uid: errno.ERPCMISMATCH
+- fullName: errno.ESHLIBVERS
+  href: https://docs.python.org/3/library/errno.html#errno.ESHLIBVERS
+  name: ESHLIBVERS
+  uid: errno.ESHLIBVERS
 - fullName: errno.ESHUTDOWN
   href: https://docs.python.org/3/library/errno.html#errno.ESHUTDOWN
   name: ESHUTDOWN
@@ -20463,6 +20527,10 @@ references:
   href: https://docs.python.org/3/library/fcntl.html#fcntl.LOCK_UN
   name: LOCK_UN
   uid: fcntl.LOCK_UN
+- fullName: filecmp.DEFAULT_IGNORES
+  href: https://docs.python.org/3/library/filecmp.html#filecmp.DEFAULT_IGNORES
+  name: DEFAULT_IGNORES
+  uid: filecmp.DEFAULT_IGNORES
 - fullName: ftplib.all_errors
   href: https://docs.python.org/3/library/ftplib.html#ftplib.all_errors
   name: all_errors
@@ -20571,6 +20639,30 @@ references:
   href: https://docs.python.org/3/library/http.client.html#http.client.responses
   name: responses
   uid: http.client.responses
+- fullName: importlib.machinery.BYTECODE_SUFFIXES
+  href: https://docs.python.org/3/library/importlib.html#importlib.machinery.BYTECODE_SUFFIXES
+  name: BYTECODE_SUFFIXES
+  uid: importlib.machinery.BYTECODE_SUFFIXES
+- fullName: importlib.machinery.DEBUG_BYTECODE_SUFFIXES
+  href: https://docs.python.org/3/library/importlib.html#importlib.machinery.DEBUG_BYTECODE_SUFFIXES
+  name: DEBUG_BYTECODE_SUFFIXES
+  uid: importlib.machinery.DEBUG_BYTECODE_SUFFIXES
+- fullName: importlib.machinery.EXTENSION_SUFFIXES
+  href: https://docs.python.org/3/library/importlib.html#importlib.machinery.EXTENSION_SUFFIXES
+  name: EXTENSION_SUFFIXES
+  uid: importlib.machinery.EXTENSION_SUFFIXES
+- fullName: importlib.machinery.OPTIMIZED_BYTECODE_SUFFIXES
+  href: https://docs.python.org/3/library/importlib.html#importlib.machinery.OPTIMIZED_BYTECODE_SUFFIXES
+  name: OPTIMIZED_BYTECODE_SUFFIXES
+  uid: importlib.machinery.OPTIMIZED_BYTECODE_SUFFIXES
+- fullName: importlib.machinery.SOURCE_SUFFIXES
+  href: https://docs.python.org/3/library/importlib.html#importlib.machinery.SOURCE_SUFFIXES
+  name: SOURCE_SUFFIXES
+  uid: importlib.machinery.SOURCE_SUFFIXES
+- fullName: importlib.util.MAGIC_NUMBER
+  href: https://docs.python.org/3/library/importlib.html#importlib.util.MAGIC_NUMBER
+  name: MAGIC_NUMBER
+  uid: importlib.util.MAGIC_NUMBER
 - fullName: inspect.CO_ASYNC_GENERATOR
   href: https://docs.python.org/3/library/inspect.html#inspect.CO_ASYNC_GENERATOR
   name: CO_ASYNC_GENERATOR
@@ -20891,6 +20983,14 @@ references:
   href: https://docs.python.org/3/library/logging.html#logging.WARNING
   name: WARNING
   uid: logging.WARNING
+- fullName: logging.lastResort
+  href: https://docs.python.org/3/library/logging.html#logging.lastResort
+  name: lastResort
+  uid: logging.lastResort
+- fullName: logging.raiseExceptions
+  href: https://docs.python.org/3/library/logging.html#logging.raiseExceptions
+  name: raiseExceptions
+  uid: logging.raiseExceptions
 - fullName: marshal.version
   href: https://docs.python.org/3/library/marshal.html#marshal.version
   name: version
@@ -22175,6 +22275,10 @@ references:
   href: https://docs.python.org/3/library/resource.html#resource.RUSAGE_THREAD
   name: RUSAGE_THREAD
   uid: resource.RUSAGE_THREAD
+- fullName: select.PIPE_BUF
+  href: https://docs.python.org/3/library/select.html#select.PIPE_BUF
+  name: PIPE_BUF
+  uid: select.PIPE_BUF
 - fullName: selectors.EVENT_READ
   href: https://docs.python.org/3/library/selectors.html#selectors.EVENT_READ
   name: EVENT_READ
