@@ -3,7 +3,5 @@ uid: msal.managed_identity.ArcPlatformNotSupportedError
 name: ArcPlatformNotSupportedError
 fullName: msal.managed_identity.ArcPlatformNotSupportedError
 module: msal.managed_identity
-inheritances:
-- msal.managed_identity.ManagedIdentityError
 constructor:
   syntax: ArcPlatformNotSupportedError()

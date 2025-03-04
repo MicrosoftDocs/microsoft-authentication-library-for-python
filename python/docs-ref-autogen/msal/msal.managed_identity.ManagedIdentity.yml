@@ -3,8 +3,6 @@ uid: msal.managed_identity.ManagedIdentity
 name: ManagedIdentity
 fullName: msal.managed_identity.ManagedIdentity
 module: msal.managed_identity
-inheritances:
-- collections.UserDict
 summary: 'Feed an instance of this class to <xref:msal.ManagedIdentityClient>
 
   to acquire token for the specified managed identity.'

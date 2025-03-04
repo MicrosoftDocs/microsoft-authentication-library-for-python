@@ -3,8 +3,6 @@ uid: msal.application.PublicClientApplication
 name: PublicClientApplication
 fullName: msal.application.PublicClientApplication
 module: msal.application
-inheritances:
-- msal.application.ClientApplication
 summary: "Same as <xref:ClientApplication.__init__>,\nexcept that `client_credential`\
   \ parameter shall remain `None`.\n\n> [!NOTE]\n> You may set enable_broker_on_windows\
   \ and/or enable_broker_on_mac to True.\n>\n> \n>\n> What is a broker, and why use\

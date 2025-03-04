@@ -3,8 +3,6 @@ uid: msal.managed_identity.ManagedIdentityClient
 name: ManagedIdentityClient
 fullName: msal.managed_identity.ManagedIdentityClient
 module: msal.managed_identity
-inheritances:
-- builtins.object
 summary: "This API encapsulates multiple managed identity back-ends:\nVM, App Service,\
   \ Azure Automation (Runbooks), Azure Function, Service Fabric,\nand Azure Arc.\n\
   \nIt also provides token cache support.\n\n> [!NOTE]\n> Cloud Shell support is NOT\

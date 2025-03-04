@@ -3,8 +3,6 @@ uid: msal.token_cache.TokenCache.AuthorityType
 name: AuthorityType
 fullName: msal.token_cache.TokenCache.AuthorityType
 module: msal.token_cache.TokenCache
-inheritances:
-- builtins.object
 constructor:
   syntax: AuthorityType()
 attributes:

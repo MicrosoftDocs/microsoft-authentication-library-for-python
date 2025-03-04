@@ -3,8 +3,6 @@ uid: msal.auth_scheme.PopAuthScheme
 name: PopAuthScheme
 fullName: msal.auth_scheme.PopAuthScheme
 module: msal.auth_scheme
-inheritances:
-- builtins.object
 summary: Create an auth scheme which is needed to obtain a Proof-of-Possession token.
 constructor:
   syntax: PopAuthScheme(http_method=None, url=None, nonce=None)

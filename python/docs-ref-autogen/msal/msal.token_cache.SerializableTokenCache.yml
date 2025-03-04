@@ -3,8 +3,6 @@ uid: msal.token_cache.SerializableTokenCache
 name: SerializableTokenCache
 fullName: msal.token_cache.SerializableTokenCache
 module: msal.token_cache
-inheritances:
-- msal.token_cache.TokenCache
 summary: "This serialization can be a starting point to implement your own persistence.\n\
   \nThis class does NOT actually persist the cache on disk/db/etc..\nDepending on\
   \ your need,\nthe following simple recipe for file-based, unencrypted persistence\

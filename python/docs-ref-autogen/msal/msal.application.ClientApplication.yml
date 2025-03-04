@@ -3,8 +3,6 @@ uid: msal.application.ClientApplication
 name: ClientApplication
 fullName: msal.application.ClientApplication
 module: msal.application
-inheritances:
-- builtins.object
 summary: 'You do not usually directly use this class. Use its subclasses instead:
 
   <xref:msal.application.PublicClientApplication> and <xref:msal.application.ConfidentialClientApplication>.
