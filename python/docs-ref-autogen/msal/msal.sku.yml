@@ -1,0 +1,5 @@
+### YamlMime:PythonModule
+uid: msal.sku
+name: sku
+fullName: msal.sku
+summary: This module is from where we recieve the client sku name and version.

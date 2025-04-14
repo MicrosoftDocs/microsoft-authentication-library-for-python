@@ -14,8 +14,8 @@ constructor:
   syntax: UserAssignedManagedIdentity(*, client_id=None, resource_id=None, object_id=None)
   keywordOnlyParameters:
   - name: client_id
-    isRequired: true
+    defaultValue: None
   - name: resource_id
-    isRequired: true
+    defaultValue: None
   - name: object_id
-    isRequired: true
+    defaultValue: None

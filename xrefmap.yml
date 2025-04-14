@@ -779,6 +779,10 @@ references:
   href: https://docs.python.org/3/library/pickle.html#pickle.UnpicklingError
   name: UnpicklingError
   uid: pickle.UnpicklingError
+- fullName: plistlib.InvalidFileException
+  href: https://docs.python.org/3/library/plistlib.html#plistlib.InvalidFileException
+  name: InvalidFileException
+  uid: plistlib.InvalidFileException
 - fullName: poplib.error_proto
   href: https://docs.python.org/3/library/poplib.html#poplib.error_proto
   name: error_proto
@@ -4051,6 +4055,10 @@ references:
   href: https://docs.python.org/3/library/pickle.html#pickle.Pickler.fast
   name: fast
   uid: pickle.Pickler.fast
+- fullName: plistlib.UID.data
+  href: https://docs.python.org/3/library/plistlib.html#plistlib.UID.data
+  name: data
+  uid: plistlib.UID.data
 - fullName: property.__name__
   href: https://docs.python.org/3/library/functions.html#property.__name__
   name: __name__
@@ -12647,6 +12655,10 @@ references:
   href: https://docs.python.org/3/library/mailbox.html#mailbox.MHMessage.set_sequences
   name: set_sequences
   uid: mailbox.MHMessage.set_sequences
+- fullName: mailbox.MMDF.get_bytes
+  href: https://docs.python.org/3/library/mailbox.html#mailbox.MMDF.get_bytes
+  name: get_bytes
+  uid: mailbox.MMDF.get_bytes
 - fullName: mailbox.MMDF.get_file
   href: https://docs.python.org/3/library/mailbox.html#mailbox.MMDF.get_file
   name: get_file
@@ -12911,10 +12923,18 @@ references:
   href: https://docs.python.org/3/library/mailbox.html#mailbox.MaildirMessage.set_subdir
   name: set_subdir
   uid: mailbox.MaildirMessage.set_subdir
+- fullName: mailbox.mbox.get_bytes
+  href: https://docs.python.org/3/library/mailbox.html#mailbox.mbox.get_bytes
+  name: get_bytes
+  uid: mailbox.mbox.get_bytes
 - fullName: mailbox.mbox.get_file
   href: https://docs.python.org/3/library/mailbox.html#mailbox.mbox.get_file
   name: get_file
   uid: mailbox.mbox.get_file
+- fullName: mailbox.mbox.get_string
+  href: https://docs.python.org/3/library/mailbox.html#mailbox.mbox.get_string
+  name: get_string
+  uid: mailbox.mbox.get_string
 - fullName: mailbox.mbox.lock
   href: https://docs.python.org/3/library/mailbox.html#mailbox.mbox.lock
   name: lock
@@ -19751,6 +19771,10 @@ references:
   href: https://docs.python.org/3/library/dis.html#dis.Instruction.baseopname
   name: baseopname
   uid: dis.Instruction.baseopname
+- fullName: dis.Instruction.cache_info
+  href: https://docs.python.org/3/library/dis.html#dis.Instruction.cache_info
+  name: cache_info
+  uid: dis.Instruction.cache_info
 - fullName: dis.Instruction.cache_offset
   href: https://docs.python.org/3/library/dis.html#dis.Instruction.cache_offset
   name: cache_offset
@@ -24475,10 +24499,6 @@ references:
   href: https://docs.python.org/3/library/token.html#token.NOTEQUAL
   name: NOTEQUAL
   uid: token.NOTEQUAL
-- fullName: token.NT_OFFSET
-  href: https://docs.python.org/3/library/token.html#token.NT_OFFSET
-  name: NT_OFFSET
-  uid: token.NT_OFFSET
 - fullName: token.NUMBER
   href: https://docs.python.org/3/library/token.html#token.NUMBER
   name: NUMBER
@@ -24995,6 +25015,10 @@ references:
   href: https://docs.python.org/3/library/winsound.html#winsound.SND_ALIAS
   name: SND_ALIAS
   uid: winsound.SND_ALIAS
+- fullName: winsound.SND_APPLICATION
+  href: https://docs.python.org/3/library/winsound.html#winsound.SND_APPLICATION
+  name: SND_APPLICATION
+  uid: winsound.SND_APPLICATION
 - fullName: winsound.SND_ASYNC
   href: https://docs.python.org/3/library/winsound.html#winsound.SND_ASYNC
   name: SND_ASYNC
@@ -27791,6 +27815,10 @@ references:
   href: https://docs.python.org/3/library/dataclasses.html#dataclasses.Field
   name: Field
   uid: dataclasses.Field
+- fullName: dataclasses.InitVar
+  href: https://docs.python.org/3/library/dataclasses.html#dataclasses.InitVar
+  name: InitVar
+  uid: dataclasses.InitVar
 - fullName: datetime.date
   href: https://docs.python.org/3/library/datetime.html#datetime.date
   name: date

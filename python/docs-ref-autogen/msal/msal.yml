@@ -7,4 +7,5 @@ modules:
 - msal.application
 - msal.auth_scheme
 - msal.managed_identity
+- msal.sku
 - msal.token_cache

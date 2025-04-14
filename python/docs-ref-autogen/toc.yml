@@ -33,6 +33,8 @@
     - name: UserAssignedManagedIdentity
       uid: msal.managed_identity.UserAssignedManagedIdentity
     name: managed_identity
+  - name: sku
+    uid: msal.sku
   - items:
     - name: Overview
       uid: msal.token_cache
