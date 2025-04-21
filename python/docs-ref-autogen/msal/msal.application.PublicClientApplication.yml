@@ -40,7 +40,8 @@ summary: "Same as <xref:ClientApplication.__init__>,\nexcept that `client_creden
   \ when broker is opted in, installed, initialized,\n>\n> but subsequent token request(s)\
   \ failed.\n>"
 constructor:
-  syntax: PublicClientApplication(client_id, client_credential=None, **kwargs)
+  syntax: PublicClientApplication(client_id, client_credential=None, *, enable_broker_on_windows=None,
+    enable_broker_on_mac=None, **kwargs)
   parameters:
   - name: enable_broker_on_windows
     description: 'This setting is only effective if your app is running on Windows
@@ -66,6 +67,11 @@ constructor:
   - name: client_id
     isRequired: true
   - name: client_credential
+    defaultValue: None
+  keywordOnlyParameters:
+  - name: enable_broker_on_windows
+    defaultValue: None
+  - name: enable_broker_on_mac
     defaultValue: None
 methods:
 - uid: msal.application.PublicClientApplication.acquire_token_by_device_flow

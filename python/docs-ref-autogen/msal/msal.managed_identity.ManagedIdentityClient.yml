@@ -22,15 +22,15 @@ summary: "This API encapsulates multiple managed identity back-ends:\nVM, App Se
   Recipe 2: Write once, run everywhere.\nIf you use different managed identity on\
   \ different deployment,\nyou may use an environment variable (such as MY_MANAGED_IDENTITY_CONFIG)\n\
   to store a json blob like\n`{\"ManagedIdentityIdType\": \"ClientId\", \"Id\": \"\
-  foo\"}` or\n`{\"ManagedIdentityIdType\": \"SystemAssignedManagedIdentity\", \"Id\"\
-  : null})`.\nThe following app can load managed identity configuration dynamically:\n\
-  \n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
-  : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"language\": \"default\",\
-  \ \"force\": false, \"linenos\": false} -->\n\n````default\n\n   import json, os,\
-  \ msal, requests\n   config = os.getenv(\"MY_MANAGED_IDENTITY_CONFIG\")\n   assert\
-  \ config, \"An ENV VAR with value should exist\"\n   client = msal.ManagedIdentityClient(\n\
-  \       json.loads(config),\n       http_client=requests.Session(),\n       )\n\
-  \   token = client.acquire_token_for_client(\"resource\")\n   ````"
+  foo\"}` or\n`{\"ManagedIdentityIdType\": \"SystemAssigned\", \"Id\": null}`.\nThe\
+  \ following app can load managed identity configuration dynamically:\n\n<!-- literal_block\
+  \ {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\": [], \"backrefs\":\
+  \ [], \"xml:space\": \"preserve\", \"language\": \"default\", \"force\": false,\
+  \ \"linenos\": false} -->\n\n````default\n\n   import json, os, msal, requests\n\
+  \   config = os.getenv(\"MY_MANAGED_IDENTITY_CONFIG\")\n   assert config, \"An ENV\
+  \ VAR with value should exist\"\n   client = msal.ManagedIdentityClient(\n     \
+  \  json.loads(config),\n       http_client=requests.Session(),\n       )\n   token\
+  \ = client.acquire_token_for_client(\"resource\")\n   ````"
 constructor:
   syntax: 'ManagedIdentityClient(managed_identity: dict | ManagedIdentity | SystemAssignedManagedIdentity
     | UserAssignedManagedIdentity, *, http_client, token_cache=None, http_cache=None)'
@@ -71,9 +71,9 @@ constructor:
   - name: http_client
     isRequired: true
   - name: token_cache
-    isRequired: true
+    defaultValue: None
   - name: http_cache
-    isRequired: true
+    defaultValue: None
 methods:
 - uid: msal.managed_identity.ManagedIdentityClient.acquire_token_for_client
   name: acquire_token_for_client
@@ -115,4 +115,4 @@ methods:
   - name: resource
     isRequired: true
   - name: claims_challenge
-    isRequired: true
+    defaultValue: None

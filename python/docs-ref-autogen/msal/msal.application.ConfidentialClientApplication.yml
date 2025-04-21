@@ -231,14 +231,15 @@ constructor:
   - name: azure_region
     description: "(optional)\nInstructs MSAL to use the Entra regional token service.\
       \ This legacy feature is only available to\nfirst-party applications. Only `acquire_token_for_client()`\
-      \ is supported.\n\nSupports 3 values:\n\n   `azure_region=None` - meaning no\
-      \ region is used. This is the default value.\n   `azure_region=\"some_region\"\
-      ` - meaning the specified region is used.\n   `azure_region=True` - meaning\
-      \ MSAL will try to auto-detect the region. This is not recommended.\n\n\n> [!NOTE]\n\
-      > Region auto-discovery has been tested on VMs and on Azure Functions. It is\
-      \ unreliable.\n>\n> Applications using this option should configure a short\
-      \ timeout.\n>\n> \n>\n> For more details and for the values of the region string\n\
-      >\n> \n>\n> see [https://learn.microsoft.com/entra/msal/dotnet/resources/region-discovery-troubleshooting](https://learn.microsoft.com/entra/msal/dotnet/resources/region-discovery-troubleshooting)\n\
+      \ is supported.\n\nSupports 4 values:\n\n1. `azure_region=None` - This default\
+      \ value means no region is configured. MSAL will use the region defined in env\
+      \ var `MSAL_FORCE_REGION`. \n\n2. `azure_region=\"some_region\"` - meaning the\
+      \ specified region is used. \n\n3. `azure_region=True` - meaning MSAL will try\
+      \ to auto-detect the region. This is not recommended. \n\n4. `azure_region=False`\
+      \ - meaning MSAL will use no region. \n\n\n> [!NOTE]\n> Region auto-discovery\
+      \ has been tested on VMs and on Azure Functions. It is unreliable.\n>\n> Applications\
+      \ using this option should configure a short timeout.\n>\n> \n>\n> For more\
+      \ details and for the values of the region string\n>\n> \n>\n> see [https://learn.microsoft.com/entra/msal/dotnet/resources/region-discovery-troubleshooting](https://learn.microsoft.com/entra/msal/dotnet/resources/region-discovery-troubleshooting)\n\
       >\n\nNew in version 1.12.0."
     defaultValue: None
     types:
