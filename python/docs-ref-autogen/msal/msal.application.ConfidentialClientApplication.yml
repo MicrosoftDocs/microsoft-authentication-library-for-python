@@ -276,7 +276,8 @@ constructor:
       \ \"rb\") as f:\n           persisted_http_cache = pickle.load(f)  # Take a\
       \ snapshot\n   except (\n           FileNotFoundError,  # Or IOError in Python\
       \ 2\n           pickle.UnpicklingError,  # A corrupted http cache file\n   \
-      \        ):\n       persisted_http_cache = {}  # Recover by starting afresh\n\
+      \        AttributeError,  # Cache created by a different version of MSAL\n \
+      \          ):\n       persisted_http_cache = {}  # Recover by starting afresh\n\
       \   atexit.register(lambda: pickle.dump(\n       # When exit, flush it back\
       \ to the file.\n       # It may occasionally overwrite another process's concurrent\
       \ write,\n       # but that is fine. Subsequent runs will reach eventual consistency.\n\
