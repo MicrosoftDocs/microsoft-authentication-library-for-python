@@ -39,8 +39,6 @@
     href: advanced/instance-metadata-caching.md
   - name: Client capabilities
     href: advanced/client-capabilities.md
-  - name: Best practices
-    href: advanced/best-practices.md
 
 - name: Additional resources
   items:

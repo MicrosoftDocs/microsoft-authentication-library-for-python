@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: msal
 ms.subservice: msal-python
 ms.topic: conceptual
-ms.date: 02/29/2024
+ms.date: 04/24/2025
 ms.author: shermanouko
 ms.reviewer: dmwendia, rayluo
 ---
@@ -31,7 +31,7 @@ pip install msal
 
 ## Identity concepts
 
-MSAL Python is part of the [Microsoft identity platform](/entra/identity-platform/v2-overview) ecosystem. It's important to familiarize yourself with the following concepts to effectively use MSAL Python to protect your applications and APIs:
+MSAL Python is part of the [Microsoft identity platform](/entra/identity-platform/v2-overview) ecosystem. Familiarize yourself with the following concepts to effectively use MSAL Python to protect your applications and APIs:
 
 - [Identity and access management](/entra/fundamentals/identity-fundamental-concepts)
 - [Authentication and authorization](/entra/identity-platform/authentication-vs-authorization)
@@ -43,7 +43,7 @@ MSAL Python is part of the [Microsoft identity platform](/entra/identity-platfor
 
 To use MSAL Python, register an application with the Microsoft identity platform. You'll need an Azure account with an active subscription. [Create a free account](https://signup.azure.com/) if you don't have one. You can register your app in a [customer tenant](/entra/external-id/customers/quickstart-tenant-setup) or [workforce tenant](/entra/identity-platform/scenario-web-app-sign-user-app-registration?tabs=python).
 
-Applications can use MSAL Python to acquire tokens for accessing protected APIs. Different app types acquire tokens using different auth flows. The supported app types include desktop applications, web applications, web APIs, and applications running on devices that don't have a browser (such as IoT devices). 
+Applications can use MSAL Python to acquire tokens for accessing protected APIs. Different app types acquire tokens using different auth flows. The supported app types include desktop applications, web applications, web APIs, and applications running on devices that don't have a browser (such as IoT devices).
 
 In MSAL Python, applications are categorized as follows:
 
@@ -58,7 +58,7 @@ After determining whether your application is a public or confidential client ap
 
 Acquiring tokens with MSAL Python follows a three-step pattern. There will be some variations for different flows. If you would like to see them in action, download our [samples](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample).
 
-1. MSAL relies on a clean separation between public client and confidential client applications. Therefore, create either a [*PublicClientApplication*](xref:msal.application.PublicClientApplication) or a [*ConfidentialClientApplication*](xref:msal.application.ConfidentialClientApplication) instance and reuse it during the lifecycle of your application. For example, for a public client application, the initialization code might look like this:
+1. MSAL relies on a clean separation between public client and confidential client applications. Therefore, create either a [`PublicClientApplication`](xref:msal.application.PublicClientApplication) or a [`ConfidentialClientApplication`](xref:msal.application.ConfidentialClientApplication) instance and reuse it during the lifecycle of your application. For example, for a public client application, the initialization code might look like this:
 
     ```python
     from msal import PublicClientApplication
@@ -104,12 +104,20 @@ Acquiring tokens with MSAL Python follows a three-step pattern. There will be so
        print(result.get("correlation_id"))  # You may need this when reporting a bug
    ```
 
-1. Save the code into a Python file locally, such as `msaltest.py`.
+1. Save the code into a Python file locally, such as *msaltest.py*.
 1. Run the code by executing `python .\msalpytest.py`. The following visual shows the sign-in experience for this example.
 
     ![Example of an app prompting the user to sign in with their account](./media/basic-pca-app-prompt.gif)
 
 1. Once the authentication is completed and you closed the browser, you should be able to see the access token printed in the terminal.
+
+## Best practices for a robust enterprise ready application
+
+You can acquire a token for a protected Web API using MSAL Python. You also don't have to handle refreshing tokens yourself. However, to build robust, enterprise ready applications, you will need to do a bit more. For instance you'll want to:
+
+- [Handle exceptions](/azure/active-directory/develop/msal-handling-exceptions?tabs=python), both when you acquire a token, but also when you call the protected Web API. In particular, if your application runs in a Microsoft Entra tenant where the tenant admins have set [Conditional Access](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki/Conditional-Access-and-Claims-Challenges) policies to enforce Multiple Factor Authentication (MFA), you will need to handle a Claim challenge.
+
+- You might want to enable [Logging](/azure/active-directory/develop/msal-logging?tabs=python) to troubleshoot your application and help your users, while respecting their privacy and being compliant with GDPR.
 
 ## Samples
 
