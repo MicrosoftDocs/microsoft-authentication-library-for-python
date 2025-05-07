@@ -13,6 +13,9 @@
     href: advanced/wam.md
   - name: Using MSAL Python with Authentication Brokers on macOS
     href: advanced/macos-broker.md
+  - name: Using MSAL Python with an Authentication Broker on Linux
+    href: ./advanced/linux-broker-py.md
+    displayName: msal, python, linux
   - name: Migrate to MSAL Python
     href: advanced/migrate-python-adal-msal.md
   - name: Logging
