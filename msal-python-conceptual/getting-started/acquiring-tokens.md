@@ -11,6 +11,7 @@ ms.author: shermanouko
 ms.reviewer: dmwendia, rayluo
 # zone_pivot_groups: msal-python-acquire-token
 # zone_pivot_group_filename: msal/python/zone-pivot-groups.json
+#Customer intent: 
 ---
 
 # Acquire tokens

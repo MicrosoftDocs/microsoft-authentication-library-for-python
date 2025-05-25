@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 02/07/2024
 ms.author: dmwendia
 ms.reviewer: shermanouko, rayluo
+#Customer intent: 
 ---
 
 # Handle errors and exceptions in MSAL for Python

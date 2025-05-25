@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 04/24/2025
 ms.author: dmwendia
 ms.reviewer: shermanouko, rayluo
+#Customer intent: 
 ---
 
 # Using MSAL Python with Web Account Manager

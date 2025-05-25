@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 04/24/2025
 ms.author: shermanouko 
 ms.reviewer: dmwendia, rayluo
+#Customer intent: 
 ---
 
 # Client applications
