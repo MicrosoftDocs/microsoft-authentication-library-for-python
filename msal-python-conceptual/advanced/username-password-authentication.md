@@ -3,13 +3,14 @@ title: Username and password authentication
 description: "By design and policy, the username/password authentication works only for Work and school accounts, but not for Microsoft Accounts (MSA)."
 author: Dickson-Mwendia
 manager: CelesteDG
-
 ms.service: msal
 ms.subservice: msal-python
 ms.topic: conceptual
 ms.date: 02/07/2024
 ms.author: dmwendia
 ms.reviewer: shermanouko, rayluo
+ms.custom: sfi-image-nochange
+#Customer intent: 
 ---
 
 # Username and password authentication

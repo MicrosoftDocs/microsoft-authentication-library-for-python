@@ -1,14 +1,15 @@
 ---
 title: Using Managed Identity
 description: Learn how to use Managed Identity with Microsoft Authentication Library (MSAL) for Python.
-author: localden
+author: SHERMANOUKO
 
 ms.service: msal
 ms.subservice: msal-python
 ms.topic: conceptual
 ms.date: 06/25/2024
-ms.author: ddelimarsky
-ms.reviewer: rayluo
+ms.author: shermanouko
+ms.reviewer: rayluo, dmwendia
+#Customer intent: 
 ---
 
 # Using Managed Identity
