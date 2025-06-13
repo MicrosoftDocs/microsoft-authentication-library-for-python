@@ -3,13 +3,14 @@ title: Migrate existing Refresh Tokens into MSAL Python
 description: "MSAL is not a low-level OAuth2 library. MSAL wraps and hides the concept of Refresh Token (RT) away from you."
 author: Dickson-Mwendia
 manager: CelesteDG
-
 ms.service: msal
 ms.subservice: msal-python
 ms.topic: conceptual
 ms.date: 02/07/2024
 ms.author: dmwendia
 ms.reviewer: shermanouko, rayluo
+ms.custom: sfi-ropc-nochange
+#Customer intent: 
 ---
 
 # Migrate existing Refresh Tokens into MSAL Python

@@ -1,15 +1,16 @@
 ---
-title: Using MSAL Python with an Authentication Broker on macOS
+title: Using MSAL Python with an Auth Broker on macOS
 description: "Using an authentication broker on macOS enables you to simplify how your users authenticate with Microsoft Entra ID from your application, as well as take advantage of advanced functionality such as token binding, protecting any issued tokens from exfiltration and misuse."
-author: localden
+author: SHERMANOUKO
 manager: CelesteDG
 
 ms.service: msal
 ms.subservice: msal-python
 ms.topic: conceptual
 ms.date: 09/06/2024
-ms.author: ddelimarsky
-ms.reviewer: shermanouko, rayluo
+ms.author: shermanouko
+ms.reviewer: dmwendia, rayluo
+#Customer intent: 
 ---
 
 # Using MSAL Python with an Authentication Broker on macOS

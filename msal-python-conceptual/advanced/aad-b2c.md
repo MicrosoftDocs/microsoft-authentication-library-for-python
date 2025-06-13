@@ -10,12 +10,15 @@ ms.topic: conceptual
 ms.date: 02/07/2024
 ms.author: dmwendia
 ms.reviewer: shermanouko, rayluo
+#Customer intent: 
 ---
 
 # Use MSAL Python to work with Azure AD B2C
 
-
 You can use MSAL Python to sign-in users with social identities, acquire tokens, and customize the sign-in experience by using [Azure AD B2C](https://aka.ms/aadb2c).
+
+> [!IMPORTANT]
+> Effective May 1, 2025, Azure AD B2C will no longer be available to purchase for new customers. To learn more, please see [Is Azure AD B2C still available to purchase?](/azure/active-directory-b2c/faq?tabs=app-reg-ga#azure-ad-b2c-end-of-sale) in our FAQ.
 
 Azure AD B2C is built around the notion of [User Flows](/azure/active-directory-b2c/active-directory-b2c-reference-policies) (formerly known as policies). In MSAL Python, specifying a user flow translates to providing an authority.
 

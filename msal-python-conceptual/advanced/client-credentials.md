@@ -3,13 +3,14 @@ title: Client credentials
 description: There are two types of client credentials in MSAL Python - application secrets and certificates.
 author: Dickson-Mwendia
 manager: CelesteDG
-
 ms.service: msal
 ms.subservice: msal-python
 ms.topic: conceptual
 ms.date: 02/07/2024
 ms.author: dmwendia
 ms.reviewer: shermanouko, rayluo
+ms.custom: sfi-image-nochange
+#Customer intent: 
 ---
 
 # Client credentials
