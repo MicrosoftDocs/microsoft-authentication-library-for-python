@@ -110,8 +110,7 @@ Reference the [Enable SSO in native Linux apps using MSAL Python](./linux-broker
 To use the broker, you will need to install the broker-related packages in addition to the core MSAL from PyPI:
 
 ```python
-pip install msal[broker]>=1.31,<2
-pip install pymsalruntime
+pip install "msal[broker]>=1.33.0b1,<2"
 ```
 
 ### Run the Sample App
