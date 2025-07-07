@@ -14491,6 +14491,10 @@ references:
   href: https://docs.python.org/3/library/random.html#random.Random.getstate
   name: getstate
   uid: random.Random.getstate
+- fullName: random.Random.randbytes
+  href: https://docs.python.org/3/library/random.html#random.Random.randbytes
+  name: randbytes
+  uid: random.Random.randbytes
 - fullName: random.Random.random
   href: https://docs.python.org/3/library/random.html#random.Random.random
   name: random
