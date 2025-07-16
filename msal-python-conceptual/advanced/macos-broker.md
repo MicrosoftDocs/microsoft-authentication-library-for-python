@@ -6,7 +6,7 @@ manager: CelesteDG
 
 ms.service: msal
 ms.subservice: msal-python
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/06/2024
 ms.author: shermanouko
 ms.reviewer: dmwendia, rayluo

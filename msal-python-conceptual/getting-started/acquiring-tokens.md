@@ -5,7 +5,7 @@ author: SHERMANOUKO
 manager: CelesteDG
 ms.service: msal
 ms.subservice: msal-python
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/24/2025
 ms.author: shermanouko
 ms.reviewer: dmwendia, rayluo
