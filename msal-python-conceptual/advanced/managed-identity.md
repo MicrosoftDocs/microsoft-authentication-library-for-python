@@ -5,7 +5,7 @@ author: SHERMANOUKO
 
 ms.service: msal
 ms.subservice: msal-python
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/25/2024
 ms.author: shermanouko
 ms.reviewer: rayluo, dmwendia
