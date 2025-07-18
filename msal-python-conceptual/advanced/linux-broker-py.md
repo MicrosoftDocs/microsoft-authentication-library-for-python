@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 06/03/2025
 ---
 
-# Enable SSSO in native Linux using MSAL Python
+# Enable SSO in native Linux using MSAL Python
 
 Microsoft Authentication Library (MSAL) is a Software Development Kit (SDK) that enables apps to call the Microsoft Single Sign-on to Linux broker, a Linux component that is shipped independent of the Linux Distribution, however it gets installed using a package manager using `sudo apt install microsoft-identity-broker` or `sudo dnf install microsoft-identity-broker`.
 
@@ -46,13 +46,12 @@ An authentication broker is an application that runs on a user’s machine that 
     https://login.microsoftonline.com/common/oauth2/nativeclient
     ```
 
-3. To use the broker, you will need to install the broker-related packages in addition to the core MSAL from PyPI:
+1. To use the broker, you will need to install the broker-related packages in addition to the core MSAL from PyPI:
 
     ```python
-    pip install msal[broker]>=1.31,<2
-    pip install pymsalruntime
+    pip install "msal[broker]>=1.33.0b1,<2"
     ```
-
+    
 4. Once configured, you can call `acquire_token_interactive` to acquire a token.
 
     ```python
@@ -97,8 +96,11 @@ MSAL will either error out, or silently fallback to non-broker flows.
 4. MSAL errors out when broker is opted in, installed, initialized, but subsequent token request(s) failed.
 
 >[!IMPORTANT]
->If broker-related packages are not installed and you will try to use the authentication broker, you will get an error: `ImportError: You need to install dependency by: pip install "msal[broker]>=1.31,<2"`.
+>If broker-related packages are not installed and you will try to use the authentication broker, you will get an error: `ImportError: You need to install dependency by: pip install "msal[broker]>=1.xx,<2"`.
 
+<!--
+This one is an error message whose content happens to be changing based on platform. The doc shall just use a placeholder that is good enough.
+-->
 >[!NOTE]
 >The `parent_window_handle` parameter is required even though on Linux it is not used. For GUI applications, the login prompt location will be determined ad-hoc and currently cannot be bound to a specific window. In a future update, this parameter will be used to determine the _actual_ parent window.
 
@@ -151,8 +153,7 @@ sudo dnf install python3 python3-pip -y
 To use the broker, you will need to install the broker-related packages in addition to the core MSAL from PyPI:
 
 ```python
-pip install msal[broker]>=1.31,<2
-pip install pymsalruntime
+pip install "msal[broker]>=1.33.0b1,<2"
 ```
 
 ### Create Project
