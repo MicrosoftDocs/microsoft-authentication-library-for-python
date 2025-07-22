@@ -4,38 +4,34 @@ name: PublicClientApplication
 fullName: msal.application.PublicClientApplication
 module: msal.application
 summary: "Same as <xref:ClientApplication.__init__>,\nexcept that `client_credential`\
-  \ parameter shall remain `None`.\n\n> [!NOTE]\n> What is a broker, and why use it?\n\
-  >\n> \n>\n> A broker is a component installed on your device.\n>\n> Broker implicitly\
-  \ gives your device an identity. By using a broker,\n>\n> your device becomes a\
-  \ factor that can satisfy MFA (Multi-factor authentication).\n>\n> This factor would\
-  \ become mandatory\n>\n> if a tenant's admin enables a corresponding Conditional\
-  \ Access (CA) policy.\n>\n> The broker's presence allows Microsoft identity platform\n\
-  >\n> to have higher confidence that the tokens are being issued to your device,\n\
-  >\n> and that is more secure.\n>\n> \n>\n> An additional benefit of broker is,\n\
-  >\n> it runs as a long-lived process with your device's OS,\n>\n> and maintains\
+  \ parameter shall remain `None`.\n\n> [!NOTE]\n> You may set enable_broker_on_windows\
+  \ and/or enable_broker_on_mac to True.\n>\n> \n>\n> What is a broker, and why use\
+  \ it?\n>\n> \n>\n> A broker is a component installed on your device.\n>\n> Broker\
+  \ implicitly gives your device an identity. By using a broker,\n>\n> your device\
+  \ becomes a factor that can satisfy MFA (Multi-factor authentication).\n>\n> This\
+  \ factor would become mandatory\n>\n> if a tenant's admin enables a corresponding\
+  \ Conditional Access (CA) policy.\n>\n> The broker's presence allows Microsoft identity\
+  \ platform\n>\n> to have higher confidence that the tokens are being issued to your\
+  \ device,\n>\n> and that is more secure.\n>\n> \n>\n> An additional benefit of broker\
+  \ is,\n>\n> it runs as a long-lived process with your device's OS,\n>\n> and maintains\
   \ its own cache,\n>\n> so that your broker-enabled apps (even a CLI)\n>\n> could\
   \ automatically SSO from a previously established signed-in session.\n>\n> \n>\n\
-  > How to opt in to use broker?\n>\n> \n>\n> You can set any combination of the following\
-  \ opt-in parameters to true:\n>\n> \n>\n> \n>\n> \n>\n> \n>\n> \n>\n> \n>\n> \n\
-  >\n> Opt-in flag\n>\n> \n>\n> If app will run on\n>\n> \n>\n> App has registered\
-  \ this as a Desktop platform redirect URI in Azure Portal\n>\n> \n>\n> enable_broker_on_windows\n\
-  >\n> \n>\n> Windows 10+\n>\n> \n>\n> ms-appx-web://Microsoft.AAD.BrokerPlugin/your_client_id\n\
-  >\n> \n>\n> enable_broker_on_wsl\n>\n> \n>\n> WSL\n>\n> \n>\n> ms-appx-web://Microsoft.AAD.BrokerPlugin/your_client_id\n\
-  >\n> \n>\n> enable_broker_on_mac\n>\n> \n>\n> Mac with Company Portal installed\n\
-  >\n> \n>\n> msauth.com.msauth.unsignedapp://auth\n>\n> \n>\n> enable_broker_on_linux\n\
-  >\n> \n>\n> Linux with Intune installed\n>\n> \n>\n> https://login.microsoftonline.com/common/oauth2/nativeclient\
-  \ (MUST be enabled)\n>\n> \n>\n> Install broker dependency,\n>\n> e.g. pip install\
-  \ msal[broker]>=1.33,<2.\n>\n> \n>\n> Test with acquire_token_interactive() and\
-  \ acquire_token_silent().\n>\n> \n>\n> The fallback behaviors of MSAL Python's broker\
-  \ support\n>\n> \n>\n> MSAL will either error out, or silently fallback to non-broker\
-  \ flows.\n>\n> \n>\n> MSAL will ignore the enable_broker_... and bypass broker\n\
-  >\n> on those auth flows that are known to be NOT supported by broker.\n>\n> This\
-  \ includes ADFS, B2C, etc..\n>\n> For other \"could-use-broker\" scenarios, please\
-  \ see below.\n>\n> \n>\n> MSAL errors out when app developer opted-in to use broker\n\
-  >\n> but a direct dependency \"mid-tier\" package is not installed.\n>\n> Error\
-  \ message guides app developer to declare the correct dependency\n>\n> msal[broker].\n\
-  >\n> We error out here because the error is actionable to app developers.\n>\n>\
-  \ \n>\n> MSAL silently \"deactivates\" the broker and fallback to non-broker,\n\
+  > You shall only enable broker when your app:\n>\n> \n>\n> is running on supported\
+  \ platforms,\n>\n> and already registered their corresponding redirect_uri\n>\n\
+  > \n>\n> ms-appx-web://Microsoft.AAD.BrokerPlugin/your_client_id\n>\n> if your app\
+  \ is expected to run on Windows 10+\n>\n> \n>\n> msauth.com.msauth.unsignedapp://auth\n\
+  >\n> if your app is expected to run on Mac\n>\n> \n>\n> installed broker dependency,\n\
+  >\n> e.g. pip install msal[broker]>=1.31,<2.\n>\n> \n>\n> tested with acquire_token_interactive()\
+  \ and acquire_token_silent().\n>\n> \n>\n> The fallback behaviors of MSAL Python's\
+  \ broker support\n>\n> \n>\n> MSAL will either error out, or silently fallback to\
+  \ non-broker flows.\n>\n> \n>\n> MSAL will ignore the enable_broker_... and bypass\
+  \ broker\n>\n> on those auth flows that are known to be NOT supported by broker.\n\
+  >\n> This includes ADFS, B2C, etc..\n>\n> For other \"could-use-broker\" scenarios,\
+  \ please see below.\n>\n> \n>\n> MSAL errors out when app developer opted-in to\
+  \ use broker\n>\n> but a direct dependency \"mid-tier\" package is not installed.\n\
+  >\n> Error message guides app developer to declare the correct dependency\n>\n>\
+  \ msal[broker].\n>\n> We error out here because the error is actionable to app developers.\n\
+  >\n> \n>\n> MSAL silently \"deactivates\" the broker and fallback to non-broker,\n\
   >\n> when opted-in, dependency installed yet failed to initialize.\n>\n> We anticipate\
   \ this would happen on a device whose OS is too old\n>\n> or the underlying broker\
   \ component is somehow unavailable.\n>\n> There is not much an app developer or\
@@ -45,8 +41,7 @@ summary: "Same as <xref:ClientApplication.__init__>,\nexcept that `client_creden
   \ failed.\n>"
 constructor:
   syntax: PublicClientApplication(client_id, client_credential=None, *, enable_broker_on_windows=None,
-    enable_broker_on_mac=None, enable_broker_on_linux=None, enable_broker_on_wsl=None,
-    **kwargs)
+    enable_broker_on_mac=None, **kwargs)
   parameters:
   - name: enable_broker_on_windows
     description: 'This setting is only effective if your app is running on Windows
@@ -69,27 +64,6 @@ constructor:
     isRequired: true
     types:
     - <xref:boolean>
-  - name: enable_broker_on_linux
-    description: 'This setting is only effective if your app is running on Linux,
-      including WSL.
-
-      This parameter defaults to None, which means MSAL will not utilize a broker.
-
-
-      New in MSAL Python 1.33.0.'
-    isRequired: true
-    types:
-    - <xref:boolean>
-  - name: enable_broker_on_wsl
-    description: 'This setting is only effective if your app is running on WSL.
-
-      This parameter defaults to None, which means MSAL will not utilize a broker.
-
-
-      New in MSAL Python 1.33.0.'
-    isRequired: true
-    types:
-    - <xref:boolean>
   - name: client_id
     isRequired: true
   - name: client_credential
@@ -98,10 +72,6 @@ constructor:
   - name: enable_broker_on_windows
     defaultValue: None
   - name: enable_broker_on_mac
-    defaultValue: None
-  - name: enable_broker_on_linux
-    defaultValue: None
-  - name: enable_broker_on_wsl
     defaultValue: None
 methods:
 - uid: msal.application.PublicClientApplication.acquire_token_by_device_flow

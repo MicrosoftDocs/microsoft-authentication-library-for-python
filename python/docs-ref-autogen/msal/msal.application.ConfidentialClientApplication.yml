@@ -66,7 +66,7 @@ constructor:
       : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"language\": \"default\"\
       , \"force\": false, \"linenos\": false} -->\n\n````default\n\n   {\n       \"\
       client_assertion\": \"...a JWT with claims aud, exp, iss, jti, nbf, and sub...\"\
-      \n   }\n   ````\n\n\n\n## Supporting reading client certificates from PFX files*Added\
+      \n   }\n   ````\n\n\n\n## Supporting reading client cerficates from PFX files*Added\
       \ in version 1.29.0*:\nFeed in a dictionary containing the path to a PFX file:\n\
       \n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
       : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"language\": \"default\"\
@@ -267,30 +267,26 @@ constructor:
       \ in some situations.\n\nThis `http_cache` parameter accepts any dict-like object.\n\
       If not provided, MSAL will use an in-memory dict.\n\nIf your app is a command-line\
       \ app (CLI),\nyou would want to persist your http_cache across different CLI\
-      \ runs.\nThe persisted file's format may change due to, but not limited to,\n\
-      [unstable protocol](https://docs.python.org/3/library/pickle.html#data-stream-format),\n\
-      so your implementation shall tolerate unexpected loading errors.\nThe following\
-      \ recipe shows a way to do so:\n\n<!-- literal_block {\"ids\": [], \"classes\"\
-      : [], \"names\": [], \"dupnames\": [], \"backrefs\": [], \"xml:space\": \"preserve\"\
-      , \"language\": \"default\", \"force\": false, \"linenos\": false} -->\n\n````default\n\
-      \n   # Just add the following lines at the beginning of your CLI script\n  \
-      \ import sys, atexit, pickle, logging\n   http_cache_filename = sys.argv[0]\
-      \ + \".http_cache\"\n   try:\n       with open(http_cache_filename, \"rb\")\
-      \ as f:\n           persisted_http_cache = pickle.load(f)  # Take a snapshot\n\
-      \   except (\n           FileNotFoundError,  # Or IOError in Python 2\n    \
-      \       pickle.UnpicklingError,  # A corrupted http cache file\n           AttributeError,\
-      \  # Cache created by a different version of MSAL\n           ):\n       persisted_http_cache\
-      \ = {}  # Recover by starting afresh\n   except:  # Unexpected exceptions\n\
-      \       logging.exception(\"You may want to debug this\")\n       persisted_http_cache\
-      \ = {}  # Recover by starting afresh\n   atexit.register(lambda: pickle.dump(\n\
-      \       # When exit, flush it back to the file.\n       # It may occasionally\
-      \ overwrite another process's concurrent write,\n       # but that is fine.\
-      \ Subsequent runs will reach eventual consistency.\n       persisted_http_cache,\
-      \ open(http_cache_file, \"wb\")))\n\n   # And then you can implement your app\
-      \ as you normally would\n   app = msal.PublicClientApplication(\n       \"your_client_id\"\
-      ,\n       ...,\n       http_cache=persisted_http_cache,  # Utilize persisted_http_cache\n\
-      \       ...,\n       #token_cache=...,  # You may combine the old token_cache\
-      \ trick\n           # Please refer to token_cache recipe at\n           # https://msal-python.readthedocs.io/en/latest/#msal.SerializableTokenCache\n\
+      \ runs.\nThe following recipe shows a way to do so:\n\n<!-- literal_block {\"\
+      ids\": [], \"classes\": [], \"names\": [], \"dupnames\": [], \"backrefs\": [],\
+      \ \"xml:space\": \"preserve\", \"language\": \"default\", \"force\": false,\
+      \ \"linenos\": false} -->\n\n````default\n\n   # Just add the following lines\
+      \ at the beginning of your CLI script\n   import sys, atexit, pickle\n   http_cache_filename\
+      \ = sys.argv[0] + \".http_cache\"\n   try:\n       with open(http_cache_filename,\
+      \ \"rb\") as f:\n           persisted_http_cache = pickle.load(f)  # Take a\
+      \ snapshot\n   except (\n           FileNotFoundError,  # Or IOError in Python\
+      \ 2\n           pickle.UnpicklingError,  # A corrupted http cache file\n   \
+      \        AttributeError,  # Cache created by a different version of MSAL\n \
+      \          ):\n       persisted_http_cache = {}  # Recover by starting afresh\n\
+      \   atexit.register(lambda: pickle.dump(\n       # When exit, flush it back\
+      \ to the file.\n       # It may occasionally overwrite another process's concurrent\
+      \ write,\n       # but that is fine. Subsequent runs will reach eventual consistency.\n\
+      \       persisted_http_cache, open(http_cache_file, \"wb\")))\n\n   # And then\
+      \ you can implement your app as you normally would\n   app = msal.PublicClientApplication(\n\
+      \       \"your_client_id\",\n       ...,\n       http_cache=persisted_http_cache,\
+      \  # Utilize persisted_http_cache\n       ...,\n       #token_cache=...,  #\
+      \ You may combine the old token_cache trick\n           # Please refer to token_cache\
+      \ recipe at\n           # https://msal-python.readthedocs.io/en/latest/#msal.SerializableTokenCache\n\
       \       )\n   app.acquire_token_interactive([\"your\", \"scope\"], ...)\n  \
       \ ````\n\nContent inside `http_cache` are cheap to obtain.\nThere is no need\
       \ to share them among different apps.\n\nContent inside `http_cache` will contain\
