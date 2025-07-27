@@ -471,10 +471,6 @@ references:
   href: https://docs.python.org/3/library/doctest.html#doctest.UnexpectedException
   name: UnexpectedException
   uid: doctest.UnexpectedException
-- fullName: doctest.failureException
-  href: https://docs.python.org/3/library/doctest.html#doctest.failureException
-  name: failureException
-  uid: doctest.failureException
 - fullName: email.errors.BoundaryError
   href: https://docs.python.org/3/library/email.errors.html#email.errors.BoundaryError
   name: BoundaryError
@@ -555,6 +551,10 @@ references:
   href: https://docs.python.org/3/library/email.errors.html#email.errors.StartBoundaryNotFoundDefect
   name: StartBoundaryNotFoundDefect
   uid: email.errors.StartBoundaryNotFoundDefect
+- fullName: encodings.CodecRegistryError
+  href: https://docs.python.org/3/library/codecs.html#encodings.CodecRegistryError
+  name: CodecRegistryError
+  uid: encodings.CodecRegistryError
 - fullName: ftplib.error_perm
   href: https://docs.python.org/3/library/ftplib.html#ftplib.error_perm
   name: error_perm
@@ -1003,6 +1003,10 @@ references:
   href: https://docs.python.org/3/library/tarfile.html#tarfile.HeaderError
   name: HeaderError
   uid: tarfile.HeaderError
+- fullName: tarfile.LinkFallbackError
+  href: https://docs.python.org/3/library/tarfile.html#tarfile.LinkFallbackError
+  name: LinkFallbackError
+  uid: tarfile.LinkFallbackError
 - fullName: tarfile.LinkOutsideDestinationError
   href: https://docs.python.org/3/library/tarfile.html#tarfile.LinkOutsideDestinationError
   name: LinkOutsideDestinationError
@@ -1187,6 +1191,14 @@ references:
   href: https://docs.python.org/3/library/zoneinfo.html#zoneinfo.ZoneInfoNotFoundError
   name: ZoneInfoNotFoundError
   uid: zoneinfo.ZoneInfoNotFoundError
+- fullName: AttributeError.name
+  href: https://docs.python.org/3/library/exceptions.html#AttributeError.name
+  name: name
+  uid: AttributeError.name
+- fullName: AttributeError.obj
+  href: https://docs.python.org/3/library/exceptions.html#AttributeError.obj
+  name: obj
+  uid: AttributeError.obj
 - fullName: BaseException.__cause__
   href: https://docs.python.org/3/library/exceptions.html#BaseException.__cause__
   name: __cause__
@@ -1231,6 +1243,10 @@ references:
   href: https://docs.python.org/3/library/exceptions.html#ImportError.path
   name: path
   uid: ImportError.path
+- fullName: NameError.name
+  href: https://docs.python.org/3/library/exceptions.html#NameError.name
+  name: name
+  uid: NameError.name
 - fullName: OSError.errno
   href: https://docs.python.org/3/library/exceptions.html#OSError.errno
   name: errno
@@ -1975,6 +1991,38 @@ references:
   href: https://docs.python.org/3/library/datetime.html#datetime.timezone.utc
   name: utc
   uid: datetime.timezone.utc
+- fullName: decimal.Context.Emax
+  href: https://docs.python.org/3/library/decimal.html#decimal.Context.Emax
+  name: Emax
+  uid: decimal.Context.Emax
+- fullName: decimal.Context.Emin
+  href: https://docs.python.org/3/library/decimal.html#decimal.Context.Emin
+  name: Emin
+  uid: decimal.Context.Emin
+- fullName: decimal.Context.capitals
+  href: https://docs.python.org/3/library/decimal.html#decimal.Context.capitals
+  name: capitals
+  uid: decimal.Context.capitals
+- fullName: decimal.Context.clamp
+  href: https://docs.python.org/3/library/decimal.html#decimal.Context.clamp
+  name: clamp
+  uid: decimal.Context.clamp
+- fullName: decimal.Context.flags
+  href: https://docs.python.org/3/library/decimal.html#decimal.Context.flags
+  name: flags
+  uid: decimal.Context.flags
+- fullName: decimal.Context.prec
+  href: https://docs.python.org/3/library/decimal.html#decimal.Context.prec
+  name: prec
+  uid: decimal.Context.prec
+- fullName: decimal.Context.rounding
+  href: https://docs.python.org/3/library/decimal.html#decimal.Context.rounding
+  name: rounding
+  uid: decimal.Context.rounding
+- fullName: decimal.Context.traps
+  href: https://docs.python.org/3/library/decimal.html#decimal.Context.traps
+  name: traps
+  uid: decimal.Context.traps
 - fullName: definition.__doc__
   href: https://docs.python.org/3/library/stdtypes.html#definition.__doc__
   name: __doc__
@@ -3699,6 +3747,10 @@ references:
   href: https://docs.python.org/3/reference/datamodel.html#module.__spec__
   name: __spec__
   uid: module.__spec__
+- fullName: module.__test__
+  href: https://docs.python.org/3/library/doctest.html#module.__test__
+  name: __test__
+  uid: module.__test__
 - fullName: modulefinder.ModuleFinder.modules
   href: https://docs.python.org/3/library/modulefinder.html#modulefinder.ModuleFinder.modules
   name: modules
@@ -10787,6 +10839,18 @@ references:
   href: https://docs.python.org/3/library/ftplib.html#ftplib.FTP_TLS.prot_p
   name: prot_p
   uid: ftplib.FTP_TLS.prot_p
+- fullName: functools.lru_cache.cache_clear
+  href: https://docs.python.org/3/library/functools.html#functools.lru_cache.cache_clear
+  name: cache_clear
+  uid: functools.lru_cache.cache_clear
+- fullName: functools.lru_cache.cache_info
+  href: https://docs.python.org/3/library/functools.html#functools.lru_cache.cache_info
+  name: cache_info
+  uid: functools.lru_cache.cache_info
+- fullName: functools.singledispatch.register
+  href: https://docs.python.org/3/library/functools.html#functools.singledispatch.register
+  name: register
+  uid: functools.singledispatch.register
 - fullName: generator.__next__
   href: https://docs.python.org/3/reference/expressions.html#generator.__next__
   name: __next__
@@ -12439,6 +12503,10 @@ references:
   href: https://docs.python.org/3/library/logging.handlers.html#logging.handlers.RotatingFileHandler.emit
   name: emit
   uid: logging.handlers.RotatingFileHandler.emit
+- fullName: logging.handlers.RotatingFileHandler.shouldRollover
+  href: https://docs.python.org/3/library/logging.handlers.html#logging.handlers.RotatingFileHandler.shouldRollover
+  name: shouldRollover
+  uid: logging.handlers.RotatingFileHandler.shouldRollover
 - fullName: logging.handlers.SMTPHandler.emit
   href: https://docs.python.org/3/library/logging.handlers.html#logging.handlers.SMTPHandler.emit
   name: emit
@@ -12507,6 +12575,10 @@ references:
   href: https://docs.python.org/3/library/logging.handlers.html#logging.handlers.TimedRotatingFileHandler.getFilesToDelete
   name: getFilesToDelete
   uid: logging.handlers.TimedRotatingFileHandler.getFilesToDelete
+- fullName: logging.handlers.TimedRotatingFileHandler.shouldRollover
+  href: https://docs.python.org/3/library/logging.handlers.html#logging.handlers.TimedRotatingFileHandler.shouldRollover
+  name: shouldRollover
+  uid: logging.handlers.TimedRotatingFileHandler.shouldRollover
 - fullName: logging.handlers.WatchedFileHandler.emit
   href: https://docs.python.org/3/library/logging.handlers.html#logging.handlers.WatchedFileHandler.emit
   name: emit
@@ -14447,6 +14519,10 @@ references:
   href: https://docs.python.org/3/library/random.html#random.Random.getstate
   name: getstate
   uid: random.Random.getstate
+- fullName: random.Random.randbytes
+  href: https://docs.python.org/3/library/random.html#random.Random.randbytes
+  name: randbytes
+  uid: random.Random.randbytes
 - fullName: random.Random.random
   href: https://docs.python.org/3/library/random.html#random.Random.random
   name: random
@@ -16875,10 +16951,6 @@ references:
   href: https://docs.python.org/3/library/unittest.html#unittest.TextTestRunner.run
   name: run
   uid: unittest.TextTestRunner.run
-- fullName: unittest.enterModuleContext
-  href: https://docs.python.org/3/library/unittest.html#unittest.enterModuleContext
-  name: enterModuleContext
-  uid: unittest.enterModuleContext
 - fullName: unittest.mock.AsyncMock.assert_any_await
   href: https://docs.python.org/3/library/unittest.mock.html#unittest.mock.AsyncMock.assert_any_await
   name: assert_any_await
@@ -22119,6 +22191,10 @@ references:
   href: https://docs.python.org/3/library/os.html#os.pardir
   name: pardir
   uid: os.pardir
+- fullName: os.path.ALLOW_MISSING
+  href: https://docs.python.org/3/library/os.path.html#os.path.ALLOW_MISSING
+  name: ALLOW_MISSING
+  uid: os.path.ALLOW_MISSING
 - fullName: os.path.supports_unicode_filenames
   href: https://docs.python.org/3/library/os.path.html#os.path.supports_unicode_filenames
   name: supports_unicode_filenames
@@ -25675,6 +25751,10 @@ references:
   href: https://docs.python.org/3/library/email.utils.html#module-email.utils
   name: utils
   uid: email.utils
+- fullName: encodings
+  href: https://docs.python.org/3/library/codecs.html#module-encodings
+  name: encodings
+  uid: encodings
 - fullName: encodings.idna
   href: https://docs.python.org/3/library/codecs.html#module-encodings.idna
   name: idna
@@ -27023,6 +27103,10 @@ references:
   href: https://docs.python.org/3/library/ast.html#ast.TypeAlias
   name: TypeAlias
   uid: ast.TypeAlias
+- fullName: ast.TypeIgnore
+  href: https://docs.python.org/3/library/ast.html#ast.TypeIgnore
+  name: TypeIgnore
+  uid: ast.TypeIgnore
 - fullName: ast.TypeVar
   href: https://docs.python.org/3/library/ast.html#ast.TypeVar
   name: TypeVar
@@ -30955,6 +31039,18 @@ references:
   href: https://docs.python.org/3/library/codecs.html#codecs.backslashreplace_errors
   name: backslashreplace_errors
   uid: codecs.backslashreplace_errors
+- fullName: codecs.charmap_build
+  href: https://docs.python.org/3/library/codecs.html#codecs.charmap_build
+  name: charmap_build
+  uid: codecs.charmap_build
+- fullName: codecs.codecs.escape_decode
+  href: https://docs.python.org/3/library/codecs.html#codecs.codecs.escape_decode
+  name: escape_decode
+  uid: codecs.codecs.escape_decode
+- fullName: codecs.codecs.escape_encode
+  href: https://docs.python.org/3/library/codecs.html#codecs.codecs.escape_encode
+  name: escape_encode
+  uid: codecs.codecs.escape_encode
 - fullName: codecs.decode
   href: https://docs.python.org/3/library/codecs.html#codecs.decode
   name: decode
@@ -31015,6 +31111,10 @@ references:
   href: https://docs.python.org/3/library/codecs.html#codecs.open
   name: open
   uid: codecs.open
+- fullName: codecs.readbuffer_encode
+  href: https://docs.python.org/3/library/codecs.html#codecs.readbuffer_encode
+  name: readbuffer_encode
+  uid: codecs.readbuffer_encode
 - fullName: codecs.register
   href: https://docs.python.org/3/library/codecs.html#codecs.register
   name: register
@@ -32047,6 +32147,14 @@ references:
   href: https://docs.python.org/3/library/codecs.html#encodings.idna.nameprep
   name: nameprep
   uid: encodings.idna.nameprep
+- fullName: encodings.normalize_encoding
+  href: https://docs.python.org/3/library/codecs.html#encodings.normalize_encoding
+  name: normalize_encoding
+  uid: encodings.normalize_encoding
+- fullName: encodings.search_function
+  href: https://docs.python.org/3/library/codecs.html#encodings.search_function
+  name: search_function
+  uid: encodings.search_function
 - fullName: ensurepip.bootstrap
   href: https://docs.python.org/3/library/ensurepip.html#ensurepip.bootstrap
   name: bootstrap
@@ -38511,6 +38619,10 @@ references:
   href: https://docs.python.org/3/library/unittest.html#unittest.doModuleCleanups
   name: doModuleCleanups
   uid: unittest.doModuleCleanups
+- fullName: unittest.enterModuleContext
+  href: https://docs.python.org/3/library/unittest.html#unittest.enterModuleContext
+  name: enterModuleContext
+  uid: unittest.enterModuleContext
 - fullName: unittest.expectedFailure
   href: https://docs.python.org/3/library/unittest.html#unittest.expectedFailure
   name: expectedFailure
