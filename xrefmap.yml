@@ -8279,6 +8279,10 @@ references:
   href: https://docs.python.org/3/library/collections.html#collections.OrderedDict.popitem
   name: popitem
   uid: collections.OrderedDict.popitem
+- fullName: collections.abc.ByteString.index
+  href: https://docs.python.org/3/library/collections.abc.html#collections.abc.ByteString.index
+  name: index
+  uid: collections.abc.ByteString.index
 - fullName: collections.defaultdict.__missing__
   href: https://docs.python.org/3/library/collections.html#collections.defaultdict.__missing__
   name: __missing__
