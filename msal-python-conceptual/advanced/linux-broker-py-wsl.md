@@ -52,6 +52,10 @@ Install the following dependencies on your Linux platform:
 To install on debian/Ubuntu based Linux distribution:
 
 ```bash
+sudo add-apt-repository -y universe
+sudo apt update
+sudo apt install libwebkit2gtk-4.1-dev -y
+
 sudo apt install libsecret-1-0 -y
 
 #from Powershell, run
@@ -63,7 +67,15 @@ wsl.exe --shutdown
 To install on Red Hat/Fedora based Linux distribution:
 
 ```bash
-sudo dnf install libsecret-1-0 -y
+sudo dnf install libsecret-1-0 webkitgtk4-devel libubsan -y
+```
+
+For RHEL 8, you'll also need to install OpenSSL3 packages from the EPEL repository:
+
+```bash
+sudo dnf install -y "https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
+sudo dnf update
+sudo dnf install -y openssl3-devel openssl3-libs
 
 #from Powershell, run
 wsl.exe --shutdown
