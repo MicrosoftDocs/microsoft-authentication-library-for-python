@@ -54,9 +54,7 @@ To install on debian/Ubuntu based Linux distribution:
 ```bash
 sudo add-apt-repository -y universe
 sudo apt update
-sudo apt install libwebkit2gtk-4.1-dev -y
-
-sudo apt install libsecret-1-0 -y
+sudo apt install libwebkit2gtk-4.1-dev libsecret-1-0  -y
 
 #from Powershell, run
 wsl.exe --shutdown
