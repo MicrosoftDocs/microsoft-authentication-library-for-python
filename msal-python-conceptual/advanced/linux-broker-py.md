@@ -135,7 +135,9 @@ If not, install it using the package manager for your distribution.
 To install on debian/Ubuntu based Linux distribution:
 
 ```bash
-sudo apt install python3 python3-pip -y
+sudo add-apt-repository -y universe
+sudo apt update
+sudo apt install python3 python3-pip libwebkit2gtk-4.1-dev -y
 ```
 
 #### [Red Hat Enterprise Linux](#tab/rheldep)
@@ -143,7 +145,15 @@ sudo apt install python3 python3-pip -y
 To install on Red Hat/Fedora based Linux distribution:
 
 ```bash
-sudo dnf install python3 python3-pip -y
+sudo dnf install python3 python3-pip libubsan webkitgtk4-devel -y
+```
+
+For RHEL 8, you'll also need to install OpenSSL3 packages from the EPEL repository:
+
+```bash
+sudo dnf install -y "https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
+sudo dnf update
+sudo dnf install -y openssl3-devel openssl3-libs
 ```
 
 ---
