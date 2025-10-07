@@ -39,6 +39,8 @@ The supported AD FS versions in this federated scenario are:
 - Active Directory Federation Services v4 (AD FS 2016)
 
 ### Acquire a token via username and password
+>[!WARNING]
+> This method of token acquisition has been deprecated for public client flows due to security risks, use a more secure flow. Follow [this guide](https://aka.ms/msal-ropc-migration) for migration guidance.
 
 The following applies whether you connect directly to Active Directory Federation Services (AD FS) or through Active Directory.
 

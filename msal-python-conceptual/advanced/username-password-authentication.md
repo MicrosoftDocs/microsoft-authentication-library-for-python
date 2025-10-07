@@ -15,6 +15,9 @@ ms.custom: sfi-image-nochange
 
 # Username and password authentication
 
+>[!WARNING]
+> This flow has been deprecated for public client scenarios due to security risks, use a more secure flow. Follow [this guide](https://aka.ms/msal-ropc-migration) for migration guidance.
+
 The content below are applicable to [all MSAL libraries](/entra/msal), not just MSAL Python.
 
 ## The username and password flow is not recommended
