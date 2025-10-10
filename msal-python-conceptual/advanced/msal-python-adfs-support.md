@@ -39,6 +39,8 @@ The supported AD FS versions in this federated scenario are:
 - Active Directory Federation Services v4 (AD FS 2016)
 
 ### Acquire a token via username and password
+>[!WARNING]
+>The Resource Owner Password Credential (ROPC) flow has been deprecated for public client applications due to security risks. Microsoft recommends using a more secure authentication flow. Follow the official guidance on how to [Migrate from ROPC](https://aka.ms/msal-ropc-migration).
 
 The following applies whether you connect directly to Active Directory Federation Services (AD FS) or through Active Directory.
 

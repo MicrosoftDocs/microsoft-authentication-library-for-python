@@ -15,6 +15,9 @@ ms.custom: sfi-image-nochange
 
 # Username and password authentication
 
+>[!WARNING]
+>The Resource Owner Password Credential (ROPC) flow has been deprecated for public client applications due to security risks. Microsoft recommends using a more secure authentication flow. Follow the official guidance on how to [Migrate from ROPC](https://aka.ms/msal-ropc-migration).
+
 The content below are applicable to [all MSAL libraries](/entra/msal), not just MSAL Python.
 
 ## The username and password flow is not recommended
