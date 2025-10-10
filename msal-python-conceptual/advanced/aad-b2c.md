@@ -10,9 +10,8 @@ ms.topic: how-to
 ms.date: 02/07/2024
 ms.author: dmwendia
 ms.reviewer: shermanouko, rayluo
-#Customer intent: 
+#Customer intent:
 ---
-
 # Use MSAL Python to work with Azure AD B2C
 
 You can use MSAL Python to sign-in users with social identities, acquire tokens, and customize the sign-in experience by using [Azure AD B2C](https://aka.ms/aadb2c).
@@ -71,7 +70,7 @@ doubles as a B2C web app sample. Its major file `app.py` works on both non-B2C a
 app.acquire_token_by_xyz(...)  # Same as in non-B2C scenarios
 ```
 
-> There is no need to filter accounts by user flow,
+There is no need to filter accounts by user flow,
 as long as you are following a pattern of
 "create different MSAL app for different user flow"
 (because the B2C user flow is designed to behave like an isolated authority).
@@ -101,15 +100,17 @@ You would just need to update your HTML template to include new link to, for exa
 ```
 
 ## Resource Owner Password Credentials (ROPC) With B2C
+>[!WARNING]
+>The Resource Owner Password Credential (ROPC) flow has been deprecated for public client applications due to security risks. Microsoft recommends using a more secure authentication flow. Follow the official guidance on how to [Migrate from ROPC](https://aka.ms/msal-ropc-migration).
 
 There exists no API difference between a B2C and non-B2C scenario. The following content serves as a mini-tutorial.
 
 * In your Azure AD B2C tenant, create a new user flow and select **Sign in using ROPC**.
-This will enable the ROPC user flow for your tenant.
-See [Configure the resource owner password credentials flow](/azure/active-directory-b2c/configure-ropc) for more details.
+  This will enable the ROPC user flow for your tenant.
+  See [Configure the resource owner password credentials flow](/azure/active-directory-b2c/configure-ropc) for more details.
 * Once you create the MSAL instance with the authority which contains the ROPC user flow,
-the [`acquire_token_by_username_password(...)`](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_by_username_password)
-would work as usual.
+  the [`acquire_token_by_username_password(...)`](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_by_username_password)
+  would work as usual.
 * Limitations: This **only works for local accounts** (where you register with B2C using an email or username). This flow does not work if federating to any of the IdPs supported by B2C (Facebook, Google, etc...).
 
 Microsoft [discourages the use of resource owner password credentials grant](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). In most scenarios, more secure alternatives are available and recommended. This flow requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows aren't viable. Learn more in the [username and password ](username-password-authentication.md) guidance.
@@ -122,7 +123,7 @@ MSAL Python token cache usage pattern starts with querying all existing accounts
 [`get_accounts(...)`, which supports a `username` parameter as filter](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.get_accounts).
 That username data is populated by a `preferred_username` claim inside the ID Token.
 
-By default, that claim is missing in many of the Azure AD B2C scenarios. 
+By default, that claim is missing in many of the Azure AD B2C scenarios.
 
 The customer impact is that when trying to display the accounts, their username field would be empty.
 This may not bother you, if you are using Auth Code flow in your web app, and dealing with only one account per user.
@@ -135,6 +136,6 @@ or simply call your `app.get_accounts()` without a specific username parameter.
 
 ## Samples
 
-Sample | Platform | Description
------- | -------- | -----------
-[Microsoft Identity Python Web App](https://github.com/Azure-Samples/ms-identity-python-webapp) | All platforms supporting Python | A web app showcasing how to use MSAL Python to authenticate users via Azure Active Directory B2C, and access a Web API with the resulting tokens.
+| Sample                                                                                       | Platform                        | Description                                                                                                                                       |
+| -------------------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Microsoft Identity Python Web App](https://github.com/Azure-Samples/ms-identity-python-webapp) | All platforms supporting Python | A web app showcasing how to use MSAL Python to authenticate users via Azure Active Directory B2C, and access a Web API with the resulting tokens. |
