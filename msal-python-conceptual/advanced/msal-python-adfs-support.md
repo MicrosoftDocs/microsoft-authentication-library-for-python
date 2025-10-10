@@ -40,7 +40,7 @@ The supported AD FS versions in this federated scenario are:
 
 ### Acquire a token via username and password
 >[!WARNING]
-> This method of token acquisition has been deprecated for public client flows due to security risks, use a more secure flow. Follow [this guide](https://aka.ms/msal-ropc-migration) for migration guidance.
+>The Resource Owner Password Credential (ROPC) flow has been deprecated for public client applications due to security risks. Microsoft recommends using a more secure authentication flow. Follow the official guidance on how to [Migrate from ROPC](https://aka.ms/msal-ropc-migration).
 
 The following applies whether you connect directly to Active Directory Federation Services (AD FS) or through Active Directory.
 

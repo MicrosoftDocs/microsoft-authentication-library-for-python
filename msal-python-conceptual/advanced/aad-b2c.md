@@ -1,5 +1,5 @@
 ---
-atitle: Use MSAL Python to work with Azure AD B2C
+title: Use MSAL Python to work with Azure AD B2C
 description: "You can use MSAL Python to sign-in users with social identities, acquire tokens, and customize the sign-in experience by using Azure AD B2C."
 author: Dickson-Mwendia
 manager: CelesteDG
@@ -70,13 +70,13 @@ doubles as a B2C web app sample. Its major file `app.py` works on both non-B2C a
 app.acquire_token_by_xyz(...)  # Same as in non-B2C scenarios
 ```
 
-> There is no need to filter accounts by user flow,
-> as long as you are following a pattern of
-> "create different MSAL app for different user flow"
-> (because the B2C user flow is designed to behave like an isolated authority).
-> In practice, you will still typically reuse same MSAL app and its token cache for the SignIn user flow,
-> and only create new one-time MSAL app when invoking EditProfile or ResetPassword user flows,
-> whose returned token (if any) would not be useful anyway.
+There is no need to filter accounts by user flow,
+as long as you are following a pattern of
+"create different MSAL app for different user flow"
+(because the B2C user flow is designed to behave like an isolated authority).
+In practice, you will still typically reuse same MSAL app and its token cache for the SignIn user flow,
+and only create new one-time MSAL app when invoking EditProfile or ResetPassword user flows,
+whose returned token (if any) would not be useful anyway.
 
 ## Example of EditProfile and ResetPassword user flows
 
@@ -101,7 +101,7 @@ You would just need to update your HTML template to include new link to, for exa
 
 ## Resource Owner Password Credentials (ROPC) With B2C
 >[!WARNING]
-> This flow has been deprecated for public client scenarios due to security risks, use a more secure flow. Follow [this guide](https://aka.ms/msal-ropc-migration) for migration guidance.
+>The Resource Owner Password Credential (ROPC) flow has been deprecated for public client applications due to security risks. Microsoft recommends using a more secure authentication flow. Follow the official guidance on how to [Migrate from ROPC](https://aka.ms/msal-ropc-migration).
 
 There exists no API difference between a B2C and non-B2C scenario. The following content serves as a mini-tutorial.
 
