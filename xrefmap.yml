@@ -23455,6 +23455,10 @@ references:
   href: https://docs.python.org/3/library/signal.html#signal.SIGWINCH
   name: SIGWINCH
   uid: signal.SIGWINCH
+- fullName: signal.SIGXCPU
+  href: https://docs.python.org/3/library/signal.html#signal.SIGXCPU
+  name: SIGXCPU
+  uid: signal.SIGXCPU
 - fullName: signal.SIG_BLOCK
   href: https://docs.python.org/3/library/signal.html#signal.SIG_BLOCK
   name: SIG_BLOCK
