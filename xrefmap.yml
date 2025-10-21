@@ -5963,6 +5963,10 @@ references:
   href: https://docs.python.org/3/reference/datamodel.html#type.__annotations__
   name: __annotations__
   uid: type.__annotations__
+- fullName: type.__base__
+  href: https://docs.python.org/3/reference/datamodel.html#type.__base__
+  name: __base__
+  uid: type.__base__
 - fullName: type.__bases__
   href: https://docs.python.org/3/reference/datamodel.html#type.__bases__
   name: __bases__
