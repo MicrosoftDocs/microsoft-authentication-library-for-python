@@ -18803,6 +18803,14 @@ references:
   href: https://docs.python.org/3/library/pyexpat.html#xml.parsers.expat.xmlparser.ProcessingInstructionHandler
   name: ProcessingInstructionHandler
   uid: xml.parsers.expat.xmlparser.ProcessingInstructionHandler
+- fullName: xml.parsers.expat.xmlparser.SetAllocTrackerActivationThreshold
+  href: https://docs.python.org/3/library/pyexpat.html#xml.parsers.expat.xmlparser.SetAllocTrackerActivationThreshold
+  name: SetAllocTrackerActivationThreshold
+  uid: xml.parsers.expat.xmlparser.SetAllocTrackerActivationThreshold
+- fullName: xml.parsers.expat.xmlparser.SetAllocTrackerMaximumAmplification
+  href: https://docs.python.org/3/library/pyexpat.html#xml.parsers.expat.xmlparser.SetAllocTrackerMaximumAmplification
+  name: SetAllocTrackerMaximumAmplification
+  uid: xml.parsers.expat.xmlparser.SetAllocTrackerMaximumAmplification
 - fullName: xml.parsers.expat.xmlparser.SetBase
   href: https://docs.python.org/3/library/pyexpat.html#xml.parsers.expat.xmlparser.SetBase
   name: SetBase
