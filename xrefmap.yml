@@ -2535,10 +2535,10 @@ references:
   href: https://docs.python.org/3/library/email.headerregistry.html#email.headerregistry.ContentDispositionHeader.content_disposition
   name: content_disposition
   uid: email.headerregistry.ContentDispositionHeader.content_disposition
-- fullName: email.headerregistry.ContentTransferEncoding.cte
-  href: https://docs.python.org/3/library/email.headerregistry.html#email.headerregistry.ContentTransferEncoding.cte
+- fullName: email.headerregistry.ContentTransferEncodingHeader.cte
+  href: https://docs.python.org/3/library/email.headerregistry.html#email.headerregistry.ContentTransferEncodingHeader.cte
   name: cte
-  uid: email.headerregistry.ContentTransferEncoding.cte
+  uid: email.headerregistry.ContentTransferEncodingHeader.cte
 - fullName: email.headerregistry.ContentTypeHeader.content_type
   href: https://docs.python.org/3/library/email.headerregistry.html#email.headerregistry.ContentTypeHeader.content_type
   name: content_type
@@ -29323,10 +29323,10 @@ references:
   href: https://docs.python.org/3/library/email.headerregistry.html#email.headerregistry.ContentDispositionHeader
   name: ContentDispositionHeader
   uid: email.headerregistry.ContentDispositionHeader
-- fullName: email.headerregistry.ContentTransferEncoding
-  href: https://docs.python.org/3/library/email.headerregistry.html#email.headerregistry.ContentTransferEncoding
-  name: ContentTransferEncoding
-  uid: email.headerregistry.ContentTransferEncoding
+- fullName: email.headerregistry.ContentTransferEncodingHeader
+  href: https://docs.python.org/3/library/email.headerregistry.html#email.headerregistry.ContentTransferEncodingHeader
+  name: ContentTransferEncodingHeader
+  uid: email.headerregistry.ContentTransferEncodingHeader
 - fullName: email.headerregistry.ContentTypeHeader
   href: https://docs.python.org/3/library/email.headerregistry.html#email.headerregistry.ContentTypeHeader
   name: ContentTypeHeader
