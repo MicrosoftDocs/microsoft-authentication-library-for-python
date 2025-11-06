@@ -20435,10 +20435,6 @@ references:
   href: https://docs.python.org/3/library/curses.html#curses.OK
   name: OK
   uid: curses.OK
-- fullName: curses.__version__
-  href: https://docs.python.org/3/library/curses.html#curses.__version__
-  name: __version__
-  uid: curses.__version__
 - fullName: curses.ascii.ACK
   href: https://docs.python.org/3/library/curses.ascii.html#curses.ascii.ACK
   name: ACK
