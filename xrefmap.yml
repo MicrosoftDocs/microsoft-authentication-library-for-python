@@ -5459,6 +5459,10 @@ references:
   href: https://docs.python.org/3/library/sys.html#sys.hash_info.algorithm
   name: algorithm
   uid: sys.hash_info.algorithm
+- fullName: sys.hash_info.cutoff
+  href: https://docs.python.org/3/library/sys.html#sys.hash_info.cutoff
+  name: cutoff
+  uid: sys.hash_info.cutoff
 - fullName: sys.hash_info.hash_bits
   href: https://docs.python.org/3/library/sys.html#sys.hash_info.hash_bits
   name: hash_bits
