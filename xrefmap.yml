@@ -31499,10 +31499,10 @@ references:
   href: https://docs.python.org/3/library/xml.dom.pulldom.html#xml.dom.pulldom.DOMEventStream
   name: DOMEventStream
   uid: xml.dom.pulldom.DOMEventStream
-- fullName: xml.dom.pulldom.PullDom
-  href: https://docs.python.org/3/library/xml.dom.pulldom.html#xml.dom.pulldom.PullDom
-  name: PullDom
-  uid: xml.dom.pulldom.PullDom
+- fullName: xml.dom.pulldom.PullDOM
+  href: https://docs.python.org/3/library/xml.dom.pulldom.html#xml.dom.pulldom.PullDOM
+  name: PullDOM
+  uid: xml.dom.pulldom.PullDOM
 - fullName: xml.dom.pulldom.SAX2DOM
   href: https://docs.python.org/3/library/xml.dom.pulldom.html#xml.dom.pulldom.SAX2DOM
   name: SAX2DOM
