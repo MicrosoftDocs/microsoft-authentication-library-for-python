@@ -13811,6 +13811,10 @@ references:
   href: https://docs.python.org/3/library/modulefinder.html#modulefinder.ModuleFinder.run_script
   name: run_script
   uid: modulefinder.ModuleFinder.run_script
+- fullName: multiprocessing.BoundedSemaphore.locked
+  href: https://docs.python.org/3/library/multiprocessing.html#multiprocessing.BoundedSemaphore.locked
+  name: locked
+  uid: multiprocessing.BoundedSemaphore.locked
 - fullName: multiprocessing.JoinableQueue.join
   href: https://docs.python.org/3/library/multiprocessing.html#multiprocessing.JoinableQueue.join
   name: join
@@ -13915,6 +13919,10 @@ references:
   href: https://docs.python.org/3/library/multiprocessing.html#multiprocessing.RLock.release
   name: release
   uid: multiprocessing.RLock.release
+- fullName: multiprocessing.Semaphore.locked
+  href: https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Semaphore.locked
+  name: locked
+  uid: multiprocessing.Semaphore.locked
 - fullName: multiprocessing.SimpleQueue.close
   href: https://docs.python.org/3/library/multiprocessing.html#multiprocessing.SimpleQueue.close
   name: close
