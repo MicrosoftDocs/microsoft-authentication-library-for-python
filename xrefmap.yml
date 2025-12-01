@@ -13919,6 +13919,10 @@ references:
   href: https://docs.python.org/3/library/multiprocessing.html#multiprocessing.RLock.release
   name: release
   uid: multiprocessing.RLock.release
+- fullName: multiprocessing.Semaphore.get_value
+  href: https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Semaphore.get_value
+  name: get_value
+  uid: multiprocessing.Semaphore.get_value
 - fullName: multiprocessing.Semaphore.locked
   href: https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Semaphore.locked
   name: locked
