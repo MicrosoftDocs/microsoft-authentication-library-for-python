@@ -33587,6 +33587,10 @@ references:
   href: https://docs.python.org/3/library/ensurepip.html#ensurepip.version
   name: version
   uid: ensurepip.version
+- fullName: enum.bin
+  href: https://docs.python.org/3/library/enum.html#enum.bin
+  name: bin
+  uid: enum.bin
 - fullName: enum.global_enum
   href: https://docs.python.org/3/library/enum.html#enum.global_enum
   name: global_enum
