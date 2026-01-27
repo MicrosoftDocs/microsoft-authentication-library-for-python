@@ -6,7 +6,7 @@ manager: CelesteDG
 
 ms.service: msal
 ms.subservice: msal-python
-ms.topic: concept-article
+ms.topic: troubleshooting-problem-resolution
 ms.date: 02/07/2024
 ms.author: dmwendia
 ms.reviewer: shermanouko, rayluo
