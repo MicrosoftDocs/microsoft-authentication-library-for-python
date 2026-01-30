@@ -9,7 +9,6 @@ This is the **documentation repository** for Microsoft Authentication Library (M
 | ✅ **SDK Repository**           | [`AzureAD/microsoft-authentication-library-for-python`](https://github.com/AzureAD/microsoft-authentication-library-for-python) |
 | ✅ **SDK Package**              | [`msal`](https://pypi.org/project/msal/) |
 | ✅ **SDK Documentation**        | [MSAL for Python on Microsoft Learn](https://learn.microsoft.com/entra/msal/python/) |
-| 🔒 **SDK Documentation CI Job** | [Azure Pipelines](https://apidrop.visualstudio.com/Content%20CI/_build?definitionId=6169) |
 
 ## Contributions
 
