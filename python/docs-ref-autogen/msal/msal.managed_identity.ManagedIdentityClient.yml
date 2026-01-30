@@ -33,7 +33,8 @@ summary: "This API encapsulates multiple managed identity back-ends:\nVM, App Se
   \ = client.acquire_token_for_client(\"resource\")\n   ````"
 constructor:
   syntax: 'ManagedIdentityClient(managed_identity: dict | ManagedIdentity | SystemAssignedManagedIdentity
-    | UserAssignedManagedIdentity, *, http_client, token_cache=None, http_cache=None)'
+    | UserAssignedManagedIdentity, *, http_client, token_cache=None, http_cache=None,
+    client_capabilities: List[str] | None = None)'
   parameters:
   - name: managed_identity
     description: 'It accepts an instance of <xref:msal.managed_identity.SystemAssignedManagedIdentity>
@@ -67,12 +68,35 @@ constructor:
 
       >>:paramref:`msal.ClientApplication.http_cache`<<.'
     isRequired: true
+  - name: client_capabilities
+    description: '(optional)
+
+      Allows configuration of one or more client capabilities, e.g. ["CP1"].
+
+
+      Client capability is meant to inform the Microsoft identity platform
+
+      (STS) what this client is capable for,
+
+      so STS can decide to turn on certain features.
+
+
+      Implementation details:
+
+      Client capability in Managed Identity is relayed as-is
+
+      via `xms_cc` parameter on the wire.'
+    isRequired: true
+    types:
+    - <xref:list>[<xref:str>]
   keywordOnlyParameters:
   - name: http_client
     isRequired: true
   - name: token_cache
     defaultValue: None
   - name: http_cache
+    defaultValue: None
+  - name: client_capabilities
     defaultValue: None
 methods:
 - uid: msal.managed_identity.ManagedIdentityClient.acquire_token_for_client
@@ -107,9 +131,7 @@ methods:
 
       even if the app developer did not opt in for the "CP1" client capability.
 
-      Upon receiving a *claims_challenge*, MSAL will skip a token cache read,
-
-      and will attempt to acquire a new token.'
+      Upon receiving a *claims_challenge*, MSAL will attempt to acquire a new token.'
     isRequired: true
   keywordOnlyParameters:
   - name: resource
