@@ -83,3 +83,15 @@ result = app.acquire_token_interactive(["User.ReadBasic.All"],
 ## Token caching
 
 The authentication broker handles refresh and access token caching. You do not need to set up custom caching.
+
+## Supported macOS versions and architectures
+
+The macOS broker supports the following configurations:
+
+| Component | Supported versions |
+|-----------|-------------------|
+| **Architecture** | ARM64 (Apple Silicon) and x64 (Intel) |
+| **macOS version** | macOS 10.15 (Catalina) and later |
+
+> [!TIP]
+> We recommend updating to the latest macOS version to ensure compatibility with the newest security features and broker capabilities.
