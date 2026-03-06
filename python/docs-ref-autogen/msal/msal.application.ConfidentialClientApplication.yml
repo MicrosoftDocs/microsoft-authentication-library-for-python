@@ -27,32 +27,28 @@ constructor:
       \ here.\n\nFor <xref:msal.application.ConfidentialClientApplication>,\nit supports\
       \ many different input formats for different scenarios.\n\n\n\n## Support using\
       \ a client secret.Just feed in a string, such as `\"your client secret\"`.\n\
-      \n\n\n## Support using a certificate in X.509 (.pem) formatFeed in a dict in\
-      \ this form:\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\"\
-      : [], \"dupnames\": [], \"backrefs\": [], \"xml:space\": \"preserve\", \"language\"\
-      : \"default\", \"force\": false, \"linenos\": false} -->\n\n````default\n\n\
-      \   {\n       \"private_key\": \"...-----BEGIN PRIVATE KEY-----... in PEM format\"\
-      ,\n       \"thumbprint\": \"A1B2C3D4E5F6...\",\n       \"passphrase\": \"Passphrase\
-      \ if the private_key is encrypted (Optional. Added in version 1.6.0)\",\n  \
-      \ }\n   ````\n\nMSAL Python requires a \"private_key\" in PEM format.\nIf your\
-      \ cert is in PKCS12 (.pfx) format,\nyou can convert it to X.509 (.pem) format,\n\
-      by `openssl pkcs12 -in file.pfx -out file.pem -nodes`.The thumbprint is available\
-      \ in your app's registration in Azure Portal.\nAlternatively, you can [calculate\
-      \ the thumbprint](https://github.com/Azure/azure-sdk-for-python/blob/07d10639d7e47f4852eaeb74aef5d569db499d6e/sdk/identity/azure-identity/azure/identity/_credentials/certificate.py#L94-L97).\n\
-      \n\n\n## Support Subject Name/Issuer Auth with a cert in .pem[Subject Name/Issuer\
-      \ Auth](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/60)\n\
-      is an approach to allow easier certificate rotation.*Added in version 0.5.0*:\n\
-      \n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
-      : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"language\": \"default\"\
-      , \"force\": false, \"linenos\": false} -->\n\n````default\n\n   {\n       \"\
-      private_key\": \"...-----BEGIN PRIVATE KEY-----... in PEM format\",\n      \
-      \ \"thumbprint\": \"A1B2C3D4E5F6...\",\n       \"public_certificate\": \"...-----BEGIN\
-      \ CERTIFICATE-----...\",\n       \"passphrase\": \"Passphrase if the private_key\
-      \ is encrypted (Optional. Added in version 1.6.0)\",\n   }\n   ````\n\n`public_certificate`\
+      \n\n\n## Support using a certificate in X.509 (.pem) formatDeprecated because\
+      \ it uses SHA-1 thumbprint,\nunless you are still using ADFS which supports\
+      \ SHA-1 thumbprint only.\nPlease use the .pfx option documented later in this\
+      \ page.Feed in a dict in this form:\n\n<!-- literal_block {\"ids\": [], \"classes\"\
+      : [], \"names\": [], \"dupnames\": [], \"backrefs\": [], \"xml:space\": \"preserve\"\
+      , \"language\": \"default\", \"force\": false, \"linenos\": false} -->\n\n````default\n\
+      \n   {\n       \"private_key\": \"...-----BEGIN PRIVATE KEY-----... in PEM format\"\
+      ,\n       \"thumbprint\": \"An SHA-1 thumbprint such as A1B2C3D4E5F6...\"\n\
+      \           \"Changed in version 1.35.0, if thumbprint is absent\"\n       \
+      \    \"and a public_certificate is present, MSAL will\"\n           \"automatically\
+      \ calculate an SHA-256 thumbprint instead.\",\n       \"passphrase\": \"Needed\
+      \ if the private_key is encrypted (Added in version 1.6.0)\",\n       \"public_certificate\"\
+      : \"...-----BEGIN CERTIFICATE-----...\",  # Needed if you use Subject Name/Issuer\
+      \ auth. Added in version 0.5.0.\n   }\n   ````\n\nMSAL Python requires a \"\
+      private_key\" in PEM format.\nIf your cert is in PKCS12 (.pfx) format,\nyou\
+      \ can convert it to X.509 (.pem) format,\nby `openssl pkcs12 -in file.pfx -out\
+      \ file.pem -nodes`.The thumbprint is available in your app's registration in\
+      \ Azure Portal.\nAlternatively, you can [calculate the thumbprint](https://github.com/Azure/azure-sdk-for-python/blob/07d10639d7e47f4852eaeb74aef5d569db499d6e/sdk/identity/azure-identity/azure/identity/_credentials/certificate.py#L94-L97).`public_certificate`\
       \ (optional) is public key certificate\nwhich will be sent through 'x5c' JWT\
-      \ header only for\nsubject name and issuer authentication to support cert auto\
-      \ rolls.Per [specs](https://tools.ietf.org/html/rfc7515#section-4.1.6),\n\"\
-      the certificate containing\nthe public key corresponding to the key used to\
+      \ header.\nThis is useful when you use [Subject Name/Issuer Authentication](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/60)\n\
+      which is an approach to allow easier certificate rotation.\nPer [specs](https://tools.ietf.org/html/rfc7515#section-4.1.6),\n\
+      \"the certificate containing\nthe public key corresponding to the key used to\
       \ digitally sign the\nJWS MUST be the first certificate.  This MAY be followed\
       \ by\nadditional certificates, with each subsequent certificate being the\n\
       one used to certify the previous one.\"\nHowever, your certificate's issuer\
@@ -66,26 +62,25 @@ constructor:
       : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"language\": \"default\"\
       , \"force\": false, \"linenos\": false} -->\n\n````default\n\n   {\n       \"\
       client_assertion\": \"...a JWT with claims aud, exp, iss, jti, nbf, and sub...\"\
-      \n   }\n   ````\n\n\n\n## Supporting reading client cerficates from PFX files*Added\
+      \n   }\n   ````\n\n\n\n## Supporting reading client certificates from PFX filesThis\
+      \ usage will automatically use SHA-256 thumbprint of the certificate.*Added\
       \ in version 1.29.0*:\nFeed in a dictionary containing the path to a PFX file:\n\
       \n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
       : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"language\": \"default\"\
       , \"force\": false, \"linenos\": false} -->\n\n````default\n\n   {\n       \"\
-      private_key_pfx_path\": \"/path/to/your.pfx\",\n       \"passphrase\": \"Passphrase\
-      \ if the private_key is encrypted (Optional)\",\n   }\n   ````\n\nThe following\
-      \ command will generate a .pfx file from your .key and .pem file:\n\n<!-- literal_block\
+      private_key_pfx_path\": \"/path/to/your.pfx\",  # Added in version 1.29.0\n\
+      \       \"public_certificate\": True,  # Only needed if you use Subject Name/Issuer\
+      \ auth. Added in version 1.30.0\n       \"passphrase\": \"Passphrase if the\
+      \ private_key is encrypted (Optional)\",\n   }\n   ````\n\nThe following command\
+      \ will generate a .pfx file from your .key and .pem file:\n\n<!-- literal_block\
       \ {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\": [], \"backrefs\"\
       : [], \"xml:space\": \"preserve\", \"language\": \"default\", \"force\": false,\
       \ \"linenos\": false} -->\n\n````default\n\n   openssl pkcs12 -export -out certificate.pfx\
-      \ -inkey privateKey.key -in certificate.pem\n   ````\n\n\n\n## Support Subject\
-      \ Name/Issuer Auth with a cert in .pfx*Added in version 1.30.0*:\nIf your .pfx\
-      \ file contains both the private key and public cert,\nyou can opt in for Subject\
-      \ Name/Issuer Auth like this:\n\n<!-- literal_block {\"ids\": [], \"classes\"\
-      : [], \"names\": [], \"dupnames\": [], \"backrefs\": [], \"xml:space\": \"preserve\"\
-      , \"language\": \"default\", \"force\": false, \"linenos\": false} -->\n\n````default\n\
-      \n   {\n       \"private_key_pfx_path\": \"/path/to/your.pfx\",\n       \"public_certificate\"\
-      : True,\n       \"passphrase\": \"Passphrase if the private_key is encrypted\
-      \ (Optional)\",\n   }\n   ````"
+      \ -inkey privateKey.key -in certificate.pem\n   ````\n\n[Subject Name/Issuer\
+      \ Auth](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/60)\n\
+      is an approach to allow easier certificate rotation.\nIf your .pfx file contains\
+      \ both the private key and public cert,\nyou can opt in for Subject Name/Issuer\
+      \ Auth by setting \"public_certificate\" to `True`."
     defaultValue: None
     types:
     - <xref:typing.Union>[<xref:dict>, <xref:str>, <xref:None>]
@@ -267,25 +262,30 @@ constructor:
       \ in some situations.\n\nThis `http_cache` parameter accepts any dict-like object.\n\
       If not provided, MSAL will use an in-memory dict.\n\nIf your app is a command-line\
       \ app (CLI),\nyou would want to persist your http_cache across different CLI\
-      \ runs.\nThe following recipe shows a way to do so:\n\n<!-- literal_block {\"\
-      ids\": [], \"classes\": [], \"names\": [], \"dupnames\": [], \"backrefs\": [],\
-      \ \"xml:space\": \"preserve\", \"language\": \"default\", \"force\": false,\
-      \ \"linenos\": false} -->\n\n````default\n\n   # Just add the following lines\
-      \ at the beginning of your CLI script\n   import sys, atexit, pickle\n   http_cache_filename\
-      \ = sys.argv[0] + \".http_cache\"\n   try:\n       with open(http_cache_filename,\
-      \ \"rb\") as f:\n           persisted_http_cache = pickle.load(f)  # Take a\
-      \ snapshot\n   except (\n           FileNotFoundError,  # Or IOError in Python\
-      \ 2\n           pickle.UnpicklingError,  # A corrupted http cache file\n   \
-      \        ):\n       persisted_http_cache = {}  # Recover by starting afresh\n\
-      \   atexit.register(lambda: pickle.dump(\n       # When exit, flush it back\
-      \ to the file.\n       # It may occasionally overwrite another process's concurrent\
-      \ write,\n       # but that is fine. Subsequent runs will reach eventual consistency.\n\
-      \       persisted_http_cache, open(http_cache_file, \"wb\")))\n\n   # And then\
-      \ you can implement your app as you normally would\n   app = msal.PublicClientApplication(\n\
-      \       \"your_client_id\",\n       ...,\n       http_cache=persisted_http_cache,\
-      \  # Utilize persisted_http_cache\n       ...,\n       #token_cache=...,  #\
-      \ You may combine the old token_cache trick\n           # Please refer to token_cache\
-      \ recipe at\n           # https://msal-python.readthedocs.io/en/latest/#msal.SerializableTokenCache\n\
+      \ runs.\nThe persisted file's format may change due to, but not limited to,\n\
+      [unstable protocol](https://docs.python.org/3/library/pickle.html#data-stream-format),\n\
+      so your implementation shall tolerate unexpected loading errors.\nThe following\
+      \ recipe shows a way to do so:\n\n<!-- literal_block {\"ids\": [], \"classes\"\
+      : [], \"names\": [], \"dupnames\": [], \"backrefs\": [], \"xml:space\": \"preserve\"\
+      , \"language\": \"default\", \"force\": false, \"linenos\": false} -->\n\n````default\n\
+      \n   # Just add the following lines at the beginning of your CLI script\n  \
+      \ import sys, atexit, pickle, logging\n   http_cache_filename = sys.argv[0]\
+      \ + \".http_cache\"\n   try:\n       with open(http_cache_filename, \"rb\")\
+      \ as f:\n           persisted_http_cache = pickle.load(f)  # Take a snapshot\n\
+      \   except (\n           FileNotFoundError,  # Or IOError in Python 2\n    \
+      \       pickle.UnpicklingError,  # A corrupted http cache file\n           AttributeError,\
+      \  # Cache created by a different version of MSAL\n           ):\n       persisted_http_cache\
+      \ = {}  # Recover by starting afresh\n   except:  # Unexpected exceptions\n\
+      \       logging.exception(\"You may want to debug this\")\n       persisted_http_cache\
+      \ = {}  # Recover by starting afresh\n   atexit.register(lambda: pickle.dump(\n\
+      \       # When exit, flush it back to the file.\n       # It may occasionally\
+      \ overwrite another process's concurrent write,\n       # but that is fine.\
+      \ Subsequent runs will reach eventual consistency.\n       persisted_http_cache,\
+      \ open(http_cache_file, \"wb\")))\n\n   # And then you can implement your app\
+      \ as you normally would\n   app = msal.PublicClientApplication(\n       \"your_client_id\"\
+      ,\n       ...,\n       http_cache=persisted_http_cache,  # Utilize persisted_http_cache\n\
+      \       ...,\n       #token_cache=...,  # You may combine the old token_cache\
+      \ trick\n           # Please refer to token_cache recipe at\n           # https://msal-python.readthedocs.io/en/latest/#msal.SerializableTokenCache\n\
       \       )\n   app.acquire_token_interactive([\"your\", \"scope\"], ...)\n  \
       \ ````\n\nContent inside `http_cache` are cheap to obtain.\nThere is no need\
       \ to share them among different apps.\n\nContent inside `http_cache` will contain\

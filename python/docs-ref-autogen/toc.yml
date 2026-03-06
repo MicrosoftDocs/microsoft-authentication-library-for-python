@@ -5,48 +5,88 @@
     - name: Overview
       uid: msal.application
     - name: ClientApplication
+      no-loc:
+      - ClientApplication
       uid: msal.application.ClientApplication
     - name: ConfidentialClientApplication
+      no-loc:
+      - ConfidentialClientApplication
       uid: msal.application.ConfidentialClientApplication
     - name: PublicClientApplication
+      no-loc:
+      - PublicClientApplication
       uid: msal.application.PublicClientApplication
     name: application
+    no-loc:
+    - application
   - items:
     - name: Overview
       uid: msal.auth_scheme
     - name: PopAuthScheme
+      no-loc:
+      - PopAuthScheme
       uid: msal.auth_scheme.PopAuthScheme
     name: auth_scheme
+    no-loc:
+    - auth_scheme
   - items:
     - name: Overview
       uid: msal.managed_identity
     - name: ArcPlatformNotSupportedError
+      no-loc:
+      - ArcPlatformNotSupportedError
       uid: msal.managed_identity.ArcPlatformNotSupportedError
     - name: ManagedIdentity
+      no-loc:
+      - ManagedIdentity
       uid: msal.managed_identity.ManagedIdentity
     - name: ManagedIdentityClient
+      no-loc:
+      - ManagedIdentityClient
       uid: msal.managed_identity.ManagedIdentityClient
     - name: ManagedIdentityError
+      no-loc:
+      - ManagedIdentityError
       uid: msal.managed_identity.ManagedIdentityError
     - name: SystemAssignedManagedIdentity
+      no-loc:
+      - SystemAssignedManagedIdentity
       uid: msal.managed_identity.SystemAssignedManagedIdentity
     - name: UserAssignedManagedIdentity
+      no-loc:
+      - UserAssignedManagedIdentity
       uid: msal.managed_identity.UserAssignedManagedIdentity
     name: managed_identity
+    no-loc:
+    - managed_identity
   - name: sku
+    no-loc:
+    - sku
     uid: msal.sku
   - items:
     - name: Overview
       uid: msal.token_cache
     - name: SerializableTokenCache
+      no-loc:
+      - SerializableTokenCache
       uid: msal.token_cache.SerializableTokenCache
     - items:
       - name: Overview
         uid: msal.token_cache.TokenCache
       - name: AuthorityType
+        no-loc:
+        - AuthorityType
         uid: msal.token_cache.TokenCache.AuthorityType
       - name: CredentialType
+        no-loc:
+        - CredentialType
         uid: msal.token_cache.TokenCache.CredentialType
       name: TokenCache
+      no-loc:
+      - TokenCache
     name: token_cache
+    no-loc:
+    - token_cache
   name: msal
+  no-loc:
+  - msal
