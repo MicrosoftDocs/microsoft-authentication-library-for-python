@@ -2,4 +2,4 @@
 uid: msal.sku
 name: sku
 fullName: msal.sku
-summary: This module is from where we recieve the client sku name and version.
+summary: This module is from where we receive the client sku name and version.
