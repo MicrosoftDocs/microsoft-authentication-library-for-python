@@ -46,10 +46,10 @@
       "locale": "en-us",
       "monikers": [],
       "moniker_ranges": [],
-      "open_to_public_contributors": true,
       "xref_query_tags": [
         "/python"
       ],
+      "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content"
       },
@@ -65,6 +65,22 @@
   "notification_subscribers": [],
   "sync_notification_subscribers": [],
   "branches_to_filter": [],
+  "git_repository_url_open_to_public_contributors": "",
+  "git_repository_branch_open_to_public_contributors": "",
+  "need_preview_pull_request": true,
+  "dependent_repositories": [
+    {
+      "path_to_root": "_themes",
+      "url": "https://github.com/Microsoft/templates.docs.msft",
+      "branch": "main",
+      "branch_mapping": {}
+    }
+  ],
+  "branch_target_mapping": {},
+  "targets": {},
+  "skip_source_output_uploading": false,
+  "contribution_branch_mappings": {},
+  "need_generate_pdf_url_template": true,
   "JoinTOCPlugin": [
     {
       "TopLevelTOC": "python/docs-ref-mapping/ref-toc.yml",
@@ -79,19 +95,6 @@
       }
     }
   ],
-  "need_preview_pull_request": true,
-  "dependent_repositories": [
-    {
-      "path_to_root": "_themes",
-      "url": "https://github.com/Microsoft/templates.docs.msft",
-      "branch": "main",
-      "branch_mapping": {}
-    }
-  ],
-  "branch_target_mapping": {},
-  "skip_source_output_uploading": false,
-  "contribution_branch_mappings": {},
-  "need_generate_pdf_url_template": true,
   "redirection_files": [
     "redirections/.openpublishing.redirection.simplify-package-structure.json"
   ]
