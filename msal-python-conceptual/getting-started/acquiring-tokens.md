@@ -16,7 +16,7 @@ ms.reviewer: dmwendia, rayluo
 
 # Acquire tokens
 
-There are many ways of acquiring a token with MSAL Python. Some require user interaction while others don't. The approach used to acquire a token is different depending on whether the developer is building a public client (desktop or mobile) or a confidential client application (web app, web API, or daemon like a Windows service).
+There are many ways of acquiring a token with MSAL Python. Some require user interaction while others don't. The approach used to acquire a token is different depending on whether the developer is building a public client (desktop or mobile) or a confidential client application (web app, web API, or daemon like a Windows service). test PR
 
 ## Prerequisites
 
