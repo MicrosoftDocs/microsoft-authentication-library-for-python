@@ -1,8 +1,8 @@
 ---
 title: Using MSAL Python with Windows Subsystem for Linux
 description: Learn how to integrate Microsoft Entra ID authentication in WSL apps using MSAL Python and the Microsoft Single Sign-on for Linux broker.
-author: ploegert
-ms.author: jploegert
+author: Dickson-Mwendia
+ms.author: dmwendia
 ms.service: msal
 ms.topic: how-to
 ms.date: 05/08/2025
