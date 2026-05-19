@@ -25,7 +25,7 @@ and then when a new RT comes back, MSAL will store it in the usual way.
 As this method is intended for scenarios that are not typical, it is NOT readily accessible with the official API surface.
 You will have to call it via an internal helper `app.client`,
 and its naming convention is also slightly different than those other
-[official APIs]().
+[official APIs](../getting-started/acquiring-tokens.md).
 
 ```python
 from msal import PublicClientApplication
