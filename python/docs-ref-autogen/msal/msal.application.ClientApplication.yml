@@ -62,22 +62,41 @@ constructor:
       : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"language\": \"default\"\
       , \"force\": false, \"linenos\": false} -->\n\n````default\n\n   {\n       \"\
       client_assertion\": \"...a JWT with claims aud, exp, iss, jti, nbf, and sub...\"\
-      \n   }\n   ````\n\n\n\n## Supporting reading client certificates from PFX filesThis\
-      \ usage will automatically use SHA-256 thumbprint of the certificate.*Added\
-      \ in version 1.29.0*:\nFeed in a dictionary containing the path to a PFX file:\n\
+      \n   }\n   ````\n\n\n> [!NOTE]\n> A pre-signed JWT string has a fixed expiration.\
+      \ Long-running\n>\n> confidential client applications (for example, workloads\
+      \ using\n>\n> AKS workload identity federation, or any other dynamic\n>\n> credential\
+      \ source) should instead pass a callable which\n>\n> MSAL will invoke on demand\
+      \ to obtain a fresh assertion:\n>\n> \n>\n> def get_client_assertion():\n>\n\
+      >     # e.g. read the projected service-account token from disk\n>\n>     with\
+      \ open(\"/var/run/secrets/azure/tokens/azure-identity-token\") as f:\n>\n> \
+      \        return f.read()\n>\n> \n>\n> app = ConfidentialClientApplication(\n\
+      >\n>     \"client_id\",\n>\n>     client_credential={\"client_assertion\": get_client_assertion},\n\
+      >\n>     ...,\n>\n> )\n>\n> \n>\n> The callable is only invoked when MSAL needs\
+      \ to send a token\n>\n> request on the wire (the in-memory token cache transparently\n\
+      >\n> avoids unnecessary calls).\n>\n> \n>\n> If your callback is itself expensive\
+      \ (for example it calls\n>\n> out to a key vault), wrap it in <xref:msal.AutoRefresher>\n\
+      >\n> to memoize the assertion for its lifetime:\n>\n> \n>\n> from msal import\
+      \ AutoRefresher\n>\n> smart_callback = AutoRefresher(get_client_assertion, expires_in=3600)\n\
+      >\n> app = ConfidentialClientApplication(\n>\n>     \"client_id\",\n>\n>   \
+      \  client_credential={\"client_assertion\": smart_callback},\n>\n>     ...,\n\
+      >\n> )\n>\n> \n>\n> Passing a plain str / bytes client_assertion is\n>\n> still\
+      \ supported for backward compatibility but is discouraged\n>\n> because the\
+      \ assertion will eventually expire.\n>\n\n\n\n## Supporting reading client certificates\
+      \ from PFX filesThis usage will automatically use SHA-256 thumbprint of the\
+      \ certificate.*Added in version 1.29.0*:\nFeed in a dictionary containing the\
+      \ path to a PFX file:\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"\
+      names\": [], \"dupnames\": [], \"backrefs\": [], \"xml:space\": \"preserve\"\
+      , \"language\": \"default\", \"force\": false, \"linenos\": false} -->\n\n````default\n\
+      \n   {\n       \"private_key_pfx_path\": \"/path/to/your.pfx\",  # Added in\
+      \ version 1.29.0\n       \"public_certificate\": True,  # Only needed if you\
+      \ use Subject Name/Issuer auth. Added in version 1.30.0\n       \"passphrase\"\
+      : \"Passphrase if the private_key is encrypted (Optional)\",\n   }\n   ````\n\
+      \nThe following command will generate a .pfx file from your .key and .pem file:\n\
       \n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
       : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"language\": \"default\"\
-      , \"force\": false, \"linenos\": false} -->\n\n````default\n\n   {\n       \"\
-      private_key_pfx_path\": \"/path/to/your.pfx\",  # Added in version 1.29.0\n\
-      \       \"public_certificate\": True,  # Only needed if you use Subject Name/Issuer\
-      \ auth. Added in version 1.30.0\n       \"passphrase\": \"Passphrase if the\
-      \ private_key is encrypted (Optional)\",\n   }\n   ````\n\nThe following command\
-      \ will generate a .pfx file from your .key and .pem file:\n\n<!-- literal_block\
-      \ {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\": [], \"backrefs\"\
-      : [], \"xml:space\": \"preserve\", \"language\": \"default\", \"force\": false,\
-      \ \"linenos\": false} -->\n\n````default\n\n   openssl pkcs12 -export -out certificate.pfx\
-      \ -inkey privateKey.key -in certificate.pem\n   ````\n\n[Subject Name/Issuer\
-      \ Auth](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/60)\n\
+      , \"force\": false, \"linenos\": false} -->\n\n````default\n\n   openssl pkcs12\
+      \ -export -out certificate.pfx -inkey privateKey.key -in certificate.pem\n \
+      \  ````\n\n[Subject Name/Issuer Auth](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/60)\n\
       is an approach to allow easier certificate rotation.\nIf your .pfx file contains\
       \ both the private key and public cert,\nyou can opt in for Subject Name/Issuer\
       \ Auth by setting \"public_certificate\" to `True`."
@@ -968,6 +987,9 @@ attributes:
 - uid: msal.application.ClientApplication.ACQUIRE_TOKEN_BY_USERNAME_PASSWORD_ID
   name: ACQUIRE_TOKEN_BY_USERNAME_PASSWORD_ID
   signature: ACQUIRE_TOKEN_BY_USERNAME_PASSWORD_ID = '301'
+- uid: msal.application.ClientApplication.ACQUIRE_TOKEN_BY_USER_FIC_ID
+  name: ACQUIRE_TOKEN_BY_USER_FIC_ID
+  signature: ACQUIRE_TOKEN_BY_USER_FIC_ID = '950'
 - uid: msal.application.ClientApplication.ACQUIRE_TOKEN_FOR_CLIENT_ID
   name: ACQUIRE_TOKEN_FOR_CLIENT_ID
   signature: ACQUIRE_TOKEN_FOR_CLIENT_ID = '730'
