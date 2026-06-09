@@ -18851,6 +18851,14 @@ references:
   href: https://docs.python.org/3/library/pyexpat.html#xml.parsers.expat.xmlparser.SetBase
   name: SetBase
   uid: xml.parsers.expat.xmlparser.SetBase
+- fullName: xml.parsers.expat.xmlparser.SetBillionLaughsAttackProtectionActivationThreshold
+  href: https://docs.python.org/3/library/pyexpat.html#xml.parsers.expat.xmlparser.SetBillionLaughsAttackProtectionActivationThreshold
+  name: SetBillionLaughsAttackProtectionActivationThreshold
+  uid: xml.parsers.expat.xmlparser.SetBillionLaughsAttackProtectionActivationThreshold
+- fullName: xml.parsers.expat.xmlparser.SetBillionLaughsAttackProtectionMaximumAmplification
+  href: https://docs.python.org/3/library/pyexpat.html#xml.parsers.expat.xmlparser.SetBillionLaughsAttackProtectionMaximumAmplification
+  name: SetBillionLaughsAttackProtectionMaximumAmplification
+  uid: xml.parsers.expat.xmlparser.SetBillionLaughsAttackProtectionMaximumAmplification
 - fullName: xml.parsers.expat.xmlparser.SetParamEntityParsing
   href: https://docs.python.org/3/library/pyexpat.html#xml.parsers.expat.xmlparser.SetParamEntityParsing
   name: SetParamEntityParsing
