@@ -11127,10 +11127,26 @@ references:
   href: https://docs.python.org/3/library/enum.html#enum.Flag.__and__
   name: __and__
   uid: enum.Flag.__and__
+- fullName: enum.Flag.__bool__
+  href: https://docs.python.org/3/library/enum.html#enum.Flag.__bool__
+  name: __bool__
+  uid: enum.Flag.__bool__
 - fullName: enum.Flag.__contains__
   href: https://docs.python.org/3/library/enum.html#enum.Flag.__contains__
   name: __contains__
   uid: enum.Flag.__contains__
+- fullName: enum.Flag.__invert__
+  href: https://docs.python.org/3/library/enum.html#enum.Flag.__invert__
+  name: __invert__
+  uid: enum.Flag.__invert__
+- fullName: enum.Flag.__iter__
+  href: https://docs.python.org/3/library/enum.html#enum.Flag.__iter__
+  name: __iter__
+  uid: enum.Flag.__iter__
+- fullName: enum.Flag.__len__
+  href: https://docs.python.org/3/library/enum.html#enum.Flag.__len__
+  name: __len__
+  uid: enum.Flag.__len__
 - fullName: enum.Flag.__or__
   href: https://docs.python.org/3/library/enum.html#enum.Flag.__or__
   name: __or__
