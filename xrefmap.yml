@@ -5827,6 +5827,10 @@ references:
   href: https://docs.python.org/3/library/tkinter.scrolledtext.html#tkinter.scrolledtext.ScrolledText.vbar
   name: vbar
   uid: tkinter.scrolledtext.ScrolledText.vbar
+- fullName: tkinter.simpledialog.Dialog.result
+  href: https://docs.python.org/3/library/dialog.html#tkinter.simpledialog.Dialog.result
+  name: result
+  uid: tkinter.simpledialog.Dialog.result
 - fullName: tomllib.TOMLDecodeError.colno
   href: https://docs.python.org/3/library/tomllib.html#tomllib.TOMLDecodeError.colno
   name: colno
