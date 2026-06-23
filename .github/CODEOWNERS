@@ -1,6 +1,0 @@
-@MicrosoftDocs/identity-sdk-cca-engineering-team
-
-# API documentation does not have code owners, but that is OK.
-# Anyone can create a PR to the `main` branch and we will review
-# the changes on the one-off basis.
-python/
