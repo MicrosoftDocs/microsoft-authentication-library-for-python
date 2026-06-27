@@ -16,7 +16,7 @@
 # Specific folder overrides (include default team to retain their approval)
 # /FOLDER/ @MicrosoftDocs/msecd-org OPTIONAL_APPROVERS
 
-@MicrosoftDocs/identity-sdk-cca-engineering-team
+* @MicrosoftDocs/identity-sdk-cca-engineering-team
 
 # API documentation does not have code owners, but that is OK.
 # Anyone can create a PR to the `main` branch and we will review
