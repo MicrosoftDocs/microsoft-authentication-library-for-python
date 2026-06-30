@@ -11,12 +11,10 @@
 #   - To keep default owners on a specific folder, include them on that line too.
 
 # Default owners for everything unless a later match takes precedence
-* @MicrosoftDocs/msecd-org
+* @MicrosoftDocs/msecd-org @MicrosoftDocs/identity-sdk-cca-engineering-team
 
 # Specific folder overrides (include default team to retain their approval)
 # /FOLDER/ @MicrosoftDocs/msecd-org OPTIONAL_APPROVERS
-
-* @MicrosoftDocs/identity-sdk-cca-engineering-team
 
 # API documentation does not have code owners, but that is OK.
 # Anyone can create a PR to the `main` branch and we will review
