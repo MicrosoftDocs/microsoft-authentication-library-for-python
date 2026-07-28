@@ -10511,6 +10511,10 @@ references:
   href: https://docs.python.org/3/library/stdtypes.html#dict.values
   name: values
   uid: dict.values
+- fullName: difflib.Differ.__init__
+  href: https://docs.python.org/3/library/difflib.html#difflib.Differ.__init__
+  name: __init__
+  uid: difflib.Differ.__init__
 - fullName: difflib.Differ.compare
   href: https://docs.python.org/3/library/difflib.html#difflib.Differ.compare
   name: compare
@@ -27875,6 +27879,10 @@ references:
   href: https://docs.python.org/3/library/test.html#test.support.is_wasi
   name: is_wasi
   uid: test.support.is_wasi
+- fullName: test.support.isolation.runningInSubprocess
+  href: https://docs.python.org/3/library/test.html#test.support.isolation.runningInSubprocess
+  name: runningInSubprocess
+  uid: test.support.isolation.runningInSubprocess
 - fullName: test.support.max_memuse
   href: https://docs.python.org/3/library/test.html#test.support.max_memuse
   name: max_memuse
@@ -41943,6 +41951,10 @@ references:
   href: https://docs.python.org/3/library/test.html#test.support.is_resource_enabled
   name: is_resource_enabled
   uid: test.support.is_resource_enabled
+- fullName: test.support.isolation.runInSubprocess
+  href: https://docs.python.org/3/library/test.html#test.support.isolation.runInSubprocess
+  name: runInSubprocess
+  uid: test.support.isolation.runInSubprocess
 - fullName: test.support.linked_to_musl
   href: https://docs.python.org/3/library/test.html#test.support.linked_to_musl
   name: linked_to_musl
