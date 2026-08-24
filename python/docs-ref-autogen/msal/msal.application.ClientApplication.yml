@@ -113,7 +113,11 @@ constructor:
       \ \"linenos\": false} -->\n\n````default\n\n   {\n       \"aud\": the_token_endpoint,\n\
       \       \"iss\": self.client_id,\n       \"sub\": same_as_issuer,\n       \"\
       exp\": now + 10_min,\n       \"iat\": now,\n       \"jti\": a_random_uuid\n\
-      \   }\n   ````"
+      \   }\n   ````\n\n\n> [!NOTE]\n> This constructor client_claims (a dict signed\
+      \ into the\n>\n> client-assertion JWT) is distinct from the per-request\n>\n\
+      > forwarded_client_claims parameter (a JSON string of\n>\n> client-originated\
+      \ claims forwarded in the token request) accepted\n>\n> by the token-acquisition\
+      \ methods.\n>"
     defaultValue: None
     types:
     - <xref:dict>
@@ -444,7 +448,7 @@ methods:
   name: acquire_token_by_authorization_code
   summary: The second half of the Authorization Code Grant.
   signature: acquire_token_by_authorization_code(code, scopes, redirect_uri=None,
-    nonce=None, claims_challenge=None, **kwargs)
+    nonce=None, claims_challenge=None, forwarded_client_claims=None, **kwargs)
   parameters:
   - name: code
     description: The authorization code returned from Authorization Server.
@@ -499,6 +503,31 @@ methods:
       It is a string of a JSON object which contains lists of claims being requested
       from these locations.'
     defaultValue: None
+  - name: forwarded_client_claims
+    description: 'Optional. A JSON string of *client-originated* claims to include
+      in
+
+      the token request. Unlike `claims_challenge` (server-issued, which
+
+      bypasses the cache), tokens acquired with `forwarded_client_claims`
+
+      **are cached** and keyed on the claims value. Send the *same* value on
+
+      every request that should share the cached token; omitting or changing
+
+      it routes to a different cache entry (a cache miss), so use stable,
+
+      non-dynamic values. The value is merged into the standard OAuth
+
+      `claims` request parameter sent on the wire.
+
+
+      Not to be confused with the constructor `client_claims` parameter
+
+      (a `dict` of extra claims signed into the client-assertion JWT).'
+    defaultValue: None
+    types:
+    - <xref:str>
   - name: redirect_uri
     defaultValue: None
   return:
@@ -619,7 +648,7 @@ methods:
 
     token cache look-up, then this method is easier and recommended.'
   signature: acquire_token_silent(scopes, account, authority=None, force_refresh=False,
-    claims_challenge=None, auth_scheme=None, **kwargs)
+    claims_challenge=None, forwarded_client_claims=None, auth_scheme=None, **kwargs)
   parameters:
   - name: scopes
     isRequired: true
@@ -630,6 +659,8 @@ methods:
   - name: force_refresh
     defaultValue: 'False'
   - name: claims_challenge
+    defaultValue: None
+  - name: forwarded_client_claims
     defaultValue: None
   - name: auth_scheme
     defaultValue: None
@@ -658,7 +689,7 @@ methods:
     Otherwise, the other method <xref:msal.application.ClientApplication.acquire_token_silent>
     is recommended.'
   signature: acquire_token_silent_with_error(scopes, account, authority=None, force_refresh=False,
-    claims_challenge=None, auth_scheme=None, **kwargs)
+    claims_challenge=None, forwarded_client_claims=None, auth_scheme=None, **kwargs)
   parameters:
   - name: scopes
     description: '(Required)
@@ -693,6 +724,28 @@ methods:
       It is a string of a JSON object which contains lists of claims being requested
       from these locations.'
     defaultValue: None
+  - name: forwarded_client_claims
+    description: 'Optional. A JSON string of *client-originated* claims, applied only
+
+      when no cached token is found and a network request is made. Unlike
+
+      `claims_challenge` (server-issued, which bypasses the cache), tokens
+
+      acquired with `forwarded_client_claims` **are cached** and keyed on
+
+      the claims value. Send the *same* value on every call that should
+
+      reuse the cached token; different or omitted values route to separate
+
+      cache entries, so use stable, non-dynamic values.
+
+
+      Not to be confused with the constructor `client_claims` parameter
+
+      (a `dict` of extra claims signed into the client-assertion JWT).'
+    defaultValue: None
+    types:
+    - <xref:str>
   - name: auth_scheme
     description: 'You can provide an `msal.auth_scheme.PopAuthScheme` object
 

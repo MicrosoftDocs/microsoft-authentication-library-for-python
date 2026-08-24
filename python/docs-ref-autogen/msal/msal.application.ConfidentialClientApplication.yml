@@ -113,7 +113,11 @@ constructor:
       \ \"linenos\": false} -->\n\n````default\n\n   {\n       \"aud\": the_token_endpoint,\n\
       \       \"iss\": self.client_id,\n       \"sub\": same_as_issuer,\n       \"\
       exp\": now + 10_min,\n       \"iat\": now,\n       \"jti\": a_random_uuid\n\
-      \   }\n   ````"
+      \   }\n   ````\n\n\n> [!NOTE]\n> This constructor client_claims (a dict signed\
+      \ into the\n>\n> client-assertion JWT) is distinct from the per-request\n>\n\
+      > forwarded_client_claims parameter (a JSON string of\n>\n> client-originated\
+      \ claims forwarded in the token request) accepted\n>\n> by the token-acquisition\
+      \ methods.\n>"
     defaultValue: None
     types:
     - <xref:dict>
@@ -382,7 +386,8 @@ methods:
 
     a specific user.'
   signature: acquire_token_by_user_federated_identity_credential(scopes, assertion,
-    username=None, user_object_id=None, claims_challenge=None, **kwargs)
+    username=None, user_object_id=None, claims_challenge=None, forwarded_client_claims=None,
+    **kwargs)
   parameters:
   - name: scopes
     description: Scopes required by downstream API (a resource).
@@ -422,6 +427,31 @@ methods:
       It is a string of a JSON object which contains lists of claims being requested
       from these locations.'
     defaultValue: None
+  - name: forwarded_client_claims
+    description: 'Optional. A JSON string of *client-originated* claims to include
+      in
+
+      the token request. Unlike `claims_challenge` (server-issued, which
+
+      bypasses the cache), tokens acquired with `forwarded_client_claims`
+
+      **are cached** and keyed on the claims value. Send the *same* value on
+
+      every request that should share the cached token; omitting or changing
+
+      it routes to a different cache entry (a cache miss), so use stable,
+
+      non-dynamic values. The value is merged into the standard OAuth
+
+      `claims` request parameter sent on the wire.
+
+
+      Not to be confused with the constructor `client_claims` parameter
+
+      (a `dict` of extra claims signed into the client-assertion JWT).'
+    defaultValue: None
+    types:
+    - <xref:str>
   return:
     description: "A dict representing the json response from Microsoft Entra:\n\n\
       * A successful response would contain \"access_token\" key, \n\n* an error response\
@@ -435,7 +465,7 @@ methods:
 
     and only send request to Identity Provider when cache misses.'
   signature: acquire_token_for_client(scopes, claims_challenge=None, fmi_path=None,
-    **kwargs)
+    forwarded_client_claims=None, **kwargs)
   parameters:
   - name: scopes
     description: '(Required)
@@ -469,6 +499,31 @@ methods:
     defaultValue: None
     types:
     - <xref:str>
+  - name: forwarded_client_claims
+    description: 'Optional. A JSON string of *client-originated* claims to include
+      in
+
+      the token request. Unlike `claims_challenge` (server-issued, which
+
+      bypasses the cache), tokens acquired with `forwarded_client_claims`
+
+      **are cached** and keyed on the claims value. Send the *same* value on
+
+      every request that should share the cached token; omitting or changing
+
+      it routes to a different cache entry (a cache miss), so use stable,
+
+      non-dynamic values. The value is merged into the standard OAuth
+
+      `claims` request parameter sent on the wire.
+
+
+      Not to be confused with the constructor `client_claims` parameter
+
+      (a `dict` of extra claims signed into the client-assertion JWT).'
+    defaultValue: None
+    types:
+    - <xref:str>
   return:
     description: "A dict representing the json response from Microsoft Entra:\n\n\
       * A successful response would contain \"access_token\" key, \n\n* an error response\
@@ -496,7 +551,7 @@ methods:
 
     [https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow#gaining-consent-for-the-middle-tier-application](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow#gaining-consent-for-the-middle-tier-application)'
   signature: acquire_token_on_behalf_of(user_assertion, scopes, claims_challenge=None,
-    **kwargs)
+    forwarded_client_claims=None, **kwargs)
   parameters:
   - name: user_assertion
     description: The incoming token already received by this app
@@ -520,6 +575,31 @@ methods:
       It is a string of a JSON object which contains lists of claims being requested
       from these locations.'
     defaultValue: None
+  - name: forwarded_client_claims
+    description: 'Optional. A JSON string of *client-originated* claims to include
+      in
+
+      the token request. Unlike `claims_challenge` (server-issued, which
+
+      bypasses the cache), tokens acquired with `forwarded_client_claims`
+
+      **are cached** and keyed on the claims value. Send the *same* value on
+
+      every request that should share the cached token; omitting or changing
+
+      it routes to a different cache entry (a cache miss), so use stable,
+
+      non-dynamic values. The value is merged into the standard OAuth
+
+      `claims` request parameter sent on the wire.
+
+
+      Not to be confused with the constructor `client_claims` parameter
+
+      (a `dict` of extra claims signed into the client-assertion JWT).'
+    defaultValue: None
+    types:
+    - <xref:str>
   return:
     description: "A dict representing the json response from Microsoft Entra:\n\n\
       * A successful response would contain \"access_token\" key, \n\n* an error response\

@@ -55,7 +55,10 @@ constructor:
       \   retries = Retry(total=3, backoff_factor=0.1, status_forcelist=[\n      \
       \ 429, 500, 501, 502, 503, 504])\n   s.mount('https://', HTTPAdapter(max_retries=retries))\n\
       \   managed_identity = ...\n   client = msal.ManagedIdentityClient(managed_identity,\
-      \ http_client=s)\n   ````"
+      \ http_client=s)\n   ````\n\nFor Service Fabric managed identity, `http_client`\
+      \ must be a\n`requests.Session` using the standard `requests.adapters.HTTPAdapter`.\n\
+      MSAL derives a separate session for the Service Fabric endpoint so that\nits\
+      \ certificate thumbprint can be validated before the Secret header is sent."
     isRequired: true
   - name: token_cache
     description: 'Optional. It accepts a <xref:msal.TokenCache> instance to store
