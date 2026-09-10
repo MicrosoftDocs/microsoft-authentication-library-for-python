@@ -62,22 +62,41 @@ constructor:
       : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"language\": \"default\"\
       , \"force\": false, \"linenos\": false} -->\n\n````default\n\n   {\n       \"\
       client_assertion\": \"...a JWT with claims aud, exp, iss, jti, nbf, and sub...\"\
-      \n   }\n   ````\n\n\n\n## Supporting reading client certificates from PFX filesThis\
-      \ usage will automatically use SHA-256 thumbprint of the certificate.*Added\
-      \ in version 1.29.0*:\nFeed in a dictionary containing the path to a PFX file:\n\
+      \n   }\n   ````\n\n\n> [!NOTE]\n> A pre-signed JWT string has a fixed expiration.\
+      \ Long-running\n>\n> confidential client applications (for example, workloads\
+      \ using\n>\n> AKS workload identity federation, or any other dynamic\n>\n> credential\
+      \ source) should instead pass a callable which\n>\n> MSAL will invoke on demand\
+      \ to obtain a fresh assertion:\n>\n> \n>\n> def get_client_assertion():\n>\n\
+      >     # e.g. read the projected service-account token from disk\n>\n>     with\
+      \ open(\"/var/run/secrets/azure/tokens/azure-identity-token\") as f:\n>\n> \
+      \        return f.read()\n>\n> \n>\n> app = ConfidentialClientApplication(\n\
+      >\n>     \"client_id\",\n>\n>     client_credential={\"client_assertion\": get_client_assertion},\n\
+      >\n>     ...,\n>\n> )\n>\n> \n>\n> The callable is only invoked when MSAL needs\
+      \ to send a token\n>\n> request on the wire (the in-memory token cache transparently\n\
+      >\n> avoids unnecessary calls).\n>\n> \n>\n> If your callback is itself expensive\
+      \ (for example it calls\n>\n> out to a key vault), wrap it in <xref:msal.AutoRefresher>\n\
+      >\n> to memoize the assertion for its lifetime:\n>\n> \n>\n> from msal import\
+      \ AutoRefresher\n>\n> smart_callback = AutoRefresher(get_client_assertion, expires_in=3600)\n\
+      >\n> app = ConfidentialClientApplication(\n>\n>     \"client_id\",\n>\n>   \
+      \  client_credential={\"client_assertion\": smart_callback},\n>\n>     ...,\n\
+      >\n> )\n>\n> \n>\n> Passing a plain str / bytes client_assertion is\n>\n> still\
+      \ supported for backward compatibility but is discouraged\n>\n> because the\
+      \ assertion will eventually expire.\n>\n\n\n\n## Supporting reading client certificates\
+      \ from PFX filesThis usage will automatically use SHA-256 thumbprint of the\
+      \ certificate.*Added in version 1.29.0*:\nFeed in a dictionary containing the\
+      \ path to a PFX file:\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"\
+      names\": [], \"dupnames\": [], \"backrefs\": [], \"xml:space\": \"preserve\"\
+      , \"language\": \"default\", \"force\": false, \"linenos\": false} -->\n\n````default\n\
+      \n   {\n       \"private_key_pfx_path\": \"/path/to/your.pfx\",  # Added in\
+      \ version 1.29.0\n       \"public_certificate\": True,  # Only needed if you\
+      \ use Subject Name/Issuer auth. Added in version 1.30.0\n       \"passphrase\"\
+      : \"Passphrase if the private_key is encrypted (Optional)\",\n   }\n   ````\n\
+      \nThe following command will generate a .pfx file from your .key and .pem file:\n\
       \n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
       : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"language\": \"default\"\
-      , \"force\": false, \"linenos\": false} -->\n\n````default\n\n   {\n       \"\
-      private_key_pfx_path\": \"/path/to/your.pfx\",  # Added in version 1.29.0\n\
-      \       \"public_certificate\": True,  # Only needed if you use Subject Name/Issuer\
-      \ auth. Added in version 1.30.0\n       \"passphrase\": \"Passphrase if the\
-      \ private_key is encrypted (Optional)\",\n   }\n   ````\n\nThe following command\
-      \ will generate a .pfx file from your .key and .pem file:\n\n<!-- literal_block\
-      \ {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\": [], \"backrefs\"\
-      : [], \"xml:space\": \"preserve\", \"language\": \"default\", \"force\": false,\
-      \ \"linenos\": false} -->\n\n````default\n\n   openssl pkcs12 -export -out certificate.pfx\
-      \ -inkey privateKey.key -in certificate.pem\n   ````\n\n[Subject Name/Issuer\
-      \ Auth](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/60)\n\
+      , \"force\": false, \"linenos\": false} -->\n\n````default\n\n   openssl pkcs12\
+      \ -export -out certificate.pfx -inkey privateKey.key -in certificate.pem\n \
+      \  ````\n\n[Subject Name/Issuer Auth](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/60)\n\
       is an approach to allow easier certificate rotation.\nIf your .pfx file contains\
       \ both the private key and public cert,\nyou can opt in for Subject Name/Issuer\
       \ Auth by setting \"public_certificate\" to `True`."
@@ -94,7 +113,11 @@ constructor:
       \ \"linenos\": false} -->\n\n````default\n\n   {\n       \"aud\": the_token_endpoint,\n\
       \       \"iss\": self.client_id,\n       \"sub\": same_as_issuer,\n       \"\
       exp\": now + 10_min,\n       \"iat\": now,\n       \"jti\": a_random_uuid\n\
-      \   }\n   ````"
+      \   }\n   ````\n\n\n> [!NOTE]\n> This constructor client_claims (a dict signed\
+      \ into the\n>\n> client-assertion JWT) is distinct from the per-request\n>\n\
+      > forwarded_client_claims parameter (a JSON string of\n>\n> client-originated\
+      \ claims forwarded in the token request) accepted\n>\n> by the token-acquisition\
+      \ methods.\n>"
     defaultValue: None
     types:
     - <xref:dict>
@@ -425,7 +448,7 @@ methods:
   name: acquire_token_by_authorization_code
   summary: The second half of the Authorization Code Grant.
   signature: acquire_token_by_authorization_code(code, scopes, redirect_uri=None,
-    nonce=None, claims_challenge=None, **kwargs)
+    nonce=None, claims_challenge=None, forwarded_client_claims=None, **kwargs)
   parameters:
   - name: code
     description: The authorization code returned from Authorization Server.
@@ -480,6 +503,31 @@ methods:
       It is a string of a JSON object which contains lists of claims being requested
       from these locations.'
     defaultValue: None
+  - name: forwarded_client_claims
+    description: 'Optional. A JSON string of *client-originated* claims to include
+      in
+
+      the token request. Unlike `claims_challenge` (server-issued, which
+
+      bypasses the cache), tokens acquired with `forwarded_client_claims`
+
+      **are cached** and keyed on the claims value. Send the *same* value on
+
+      every request that should share the cached token; omitting or changing
+
+      it routes to a different cache entry (a cache miss), so use stable,
+
+      non-dynamic values. The value is merged into the standard OAuth
+
+      `claims` request parameter sent on the wire.
+
+
+      Not to be confused with the constructor `client_claims` parameter
+
+      (a `dict` of extra claims signed into the client-assertion JWT).'
+    defaultValue: None
+    types:
+    - <xref:str>
   - name: redirect_uri
     defaultValue: None
   return:
@@ -600,7 +648,7 @@ methods:
 
     token cache look-up, then this method is easier and recommended.'
   signature: acquire_token_silent(scopes, account, authority=None, force_refresh=False,
-    claims_challenge=None, auth_scheme=None, **kwargs)
+    claims_challenge=None, forwarded_client_claims=None, auth_scheme=None, **kwargs)
   parameters:
   - name: scopes
     isRequired: true
@@ -611,6 +659,8 @@ methods:
   - name: force_refresh
     defaultValue: 'False'
   - name: claims_challenge
+    defaultValue: None
+  - name: forwarded_client_claims
     defaultValue: None
   - name: auth_scheme
     defaultValue: None
@@ -639,7 +689,7 @@ methods:
     Otherwise, the other method <xref:msal.application.ClientApplication.acquire_token_silent>
     is recommended.'
   signature: acquire_token_silent_with_error(scopes, account, authority=None, force_refresh=False,
-    claims_challenge=None, auth_scheme=None, **kwargs)
+    claims_challenge=None, forwarded_client_claims=None, auth_scheme=None, **kwargs)
   parameters:
   - name: scopes
     description: '(Required)
@@ -674,6 +724,28 @@ methods:
       It is a string of a JSON object which contains lists of claims being requested
       from these locations.'
     defaultValue: None
+  - name: forwarded_client_claims
+    description: 'Optional. A JSON string of *client-originated* claims, applied only
+
+      when no cached token is found and a network request is made. Unlike
+
+      `claims_challenge` (server-issued, which bypasses the cache), tokens
+
+      acquired with `forwarded_client_claims` **are cached** and keyed on
+
+      the claims value. Send the *same* value on every call that should
+
+      reuse the cached token; different or omitted values route to separate
+
+      cache entries, so use stable, non-dynamic values.
+
+
+      Not to be confused with the constructor `client_claims` parameter
+
+      (a `dict` of extra claims signed into the client-assertion JWT).'
+    defaultValue: None
+    types:
+    - <xref:str>
   - name: auth_scheme
     description: 'You can provide an `msal.auth_scheme.PopAuthScheme` object
 
@@ -968,6 +1040,9 @@ attributes:
 - uid: msal.application.ClientApplication.ACQUIRE_TOKEN_BY_USERNAME_PASSWORD_ID
   name: ACQUIRE_TOKEN_BY_USERNAME_PASSWORD_ID
   signature: ACQUIRE_TOKEN_BY_USERNAME_PASSWORD_ID = '301'
+- uid: msal.application.ClientApplication.ACQUIRE_TOKEN_BY_USER_FIC_ID
+  name: ACQUIRE_TOKEN_BY_USER_FIC_ID
+  signature: ACQUIRE_TOKEN_BY_USER_FIC_ID = '950'
 - uid: msal.application.ClientApplication.ACQUIRE_TOKEN_FOR_CLIENT_ID
   name: ACQUIRE_TOKEN_FOR_CLIENT_ID
   signature: ACQUIRE_TOKEN_FOR_CLIENT_ID = '730'
