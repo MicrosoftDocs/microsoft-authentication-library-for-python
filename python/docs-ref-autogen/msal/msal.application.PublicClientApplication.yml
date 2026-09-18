@@ -21,8 +21,8 @@ summary: "Same as <xref:ClientApplication.__init__>,\nexcept that `client_creden
   \ this as a Desktop platform redirect URI in Azure Portal\n>\n> \n>\n> enable_broker_on_windows\n\
   >\n> \n>\n> Windows 10+\n>\n> \n>\n> ms-appx-web://Microsoft.AAD.BrokerPlugin/your_client_id\n\
   >\n> \n>\n> enable_broker_on_wsl\n>\n> \n>\n> WSL\n>\n> \n>\n> ms-appx-web://Microsoft.AAD.BrokerPlugin/your_client_id\n\
-  >\n> \n>\n> enable_broker_on_mac\n>\n> \n>\n> Mac with Company Portal installed\n\
-  >\n> \n>\n> msauth.com.msauth.unsignedapp://auth\n>\n> \n>\n> enable_broker_on_linux\n\
+  >\n> \n>\n> enable_broker_on_mac\n>\n> \n>\n> Apple Silicon Mac with Company Portal\
+  \ installed\n>\n> \n>\n> msauth.com.msauth.unsignedapp://auth\n>\n> \n>\n> enable_broker_on_linux\n\
   >\n> \n>\n> Linux with Intune installed\n>\n> \n>\n> https://login.microsoftonline.com/common/oauth2/nativeclient\
   \ (MUST be enabled)\n>\n> \n>\n> Install broker dependency,\n>\n> e.g. pip install\
   \ msal[broker]>=1.33,<2.\n>\n> \n>\n> Test with acquire_token_interactive() and\
@@ -60,7 +60,13 @@ constructor:
     types:
     - <xref:boolean>
   - name: enable_broker_on_mac
-    description: 'This setting is only effective if your app is running on Mac.
+    description: 'This setting is only effective if your app is running on
+
+      an Apple Silicon (arm64) Mac.
+
+      Broker is not supported on Intel-based Macs, where this setting
+
+      is ignored and MSAL will fall back to non-broker.
 
       This parameter defaults to None, which means MSAL will not utilize a broker.
 
